@@ -1,0 +1,246 @@
+[gd_scene load_steps=14 format=3 uid="uid://coim8nk66yo7q"]
+
+[ext_resource type="Theme" uid="uid://d2p58ngrkwytp" path="res://visual/ui/theme/puffed_bun.tres" id="1_55xp5"]
+[ext_resource type="Script" path="res://scenes/ui/menu.gd" id="2_05aoi"]
+[ext_resource type="Texture2D" uid="uid://cgq7gy4qck0h8" path="res://visual/ui/mishamol.svg" id="2_sb3vv"]
+[ext_resource type="Texture2D" uid="uid://c5t7hut1ogj3i" path="res://visual/plan/doors.svg" id="3_d6mle"]
+[ext_resource type="Script" path="res://visual/plan/plan_hover.gd" id="4_kvasr"]
+[ext_resource type="Texture2D" uid="uid://cght76ipus816" path="res://visual/plan/furniture.svg" id="5_mdfgd"]
+[ext_resource type="Texture2D" uid="uid://8yeqdxr6oitp" path="res://visual/plan/walls.svg" id="6_5qie1"]
+[ext_resource type="Texture2D" uid="uid://c0l1pjgxlp8to" path="res://visual/plan/windows.svg" id="7_8b3m7"]
+
+[sub_resource type="Animation" id="Animation_v1tg2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bex2q"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ch7h"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqryh"]
+_data = {
+"RESET": SubResource("Animation_v1tg2"),
+"fade_in": SubResource("Animation_bex2q"),
+"fade_out": SubResource("Animation_5ch7h")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj0ff"]
+
+[node name="Menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("2_05aoi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pqryh")
+}
+
+[node name="Menu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Control" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.0
+offset_top = -252.0
+offset_right = 826.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.716884, 0.716884)
+theme = ExtResource("1_55xp5")
+
+[node name="Title" type="Label" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.5
+offset_top = -382.319
+offset_right = 363.5
+offset_bottom = -314.319
+grow_horizontal = 2
+grow_vertical = 2
+text = "Constructivism Interior Visualisation"
+
+[node name="Controls" type="Label" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 238.803
+offset_top = 34.7637
+offset_right = 404.803
+offset_bottom = 154.764
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Walk: W A S D
+Interact: E
+Reset: R
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plan" type="Control" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.91431
+offset_top = 12.4449
+offset_right = -3.91431
+offset_bottom = 12.4449
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.727553, 0.727553)
+
+[node name="Doors" type="Sprite2D" parent="Menu/Control/Plan"]
+material = SubResource("ShaderMaterial_pj0ff")
+texture = ExtResource("3_d6mle")
+script = ExtResource("4_kvasr")
+
+[node name="Furniture" type="Sprite2D" parent="Menu/Control/Plan"]
+texture = ExtResource("5_mdfgd")
+script = ExtResource("4_kvasr")
+
+[node name="Walls" type="Sprite2D" parent="Menu/Control/Plan"]
+texture = ExtResource("6_5qie1")
+script = ExtResource("4_kvasr")
+
+[node name="Windows" type="Sprite2D" parent="Menu/Control/Plan"]
+texture = ExtResource("7_8b3m7")
+script = ExtResource("4_kvasr")
+
+[node name="Buttons" type="HBoxContainer" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = 246.792
+offset_right = 301.5
+offset_bottom = 316.792
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="Quit" type="Button" parent="Menu/Control/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="GitHub" type="Button" parent="Menu/Control/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GitHub"
+
+[node name="Album" type="Button" parent="Menu/Control/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Album"
+
+[node name="Mishamol" type="Control" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0676
+offset_top = 372.397
+offset_right = 96.0676
+offset_bottom = 412.397
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+
+[node name="Mishamol" type="Sprite2D" parent="Menu/Control/Mishamol"]
+texture = ExtResource("2_sb3vv")
+
+[node name="LinkButton" type="LinkButton" parent="Menu/Control/Mishamol/Mishamol"]
+offset_left = -126.0
+offset_top = -26.0
+offset_right = 294.0
+offset_bottom = 39.0
+theme = ExtResource("1_55xp5")
+text = "            "
+underline = 1
+uri = "https://mishamol.ru/"
+
+[node name="MadeBy" type="Label" parent="Menu/Control/Mishamol"]
+layout_mode = 0
+offset_left = -273.0
+offset_top = -27.0
+offset_right = -107.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 36
+text = "made by"
+horizontal_alignment = 1
+vertical_alignment = 1

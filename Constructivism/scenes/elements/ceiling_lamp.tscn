@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bcyidxrssrans"]
+
+[node name="CeilingLamp" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12267, 2.93014, -4.58878)
+light_energy = 0.2

@@ -1,0 +1,113 @@
+[gd_scene load_steps=15 format=3 uid="uid://bunoelg7xy04m"]
+
+[ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_cqyur"]
+[ext_resource type="Texture2D" uid="uid://dcta1u1vpjely" path="res://visual/album/1.png" id="1_eiq1m"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_uu01v"]
+[ext_resource type="Texture2D" uid="uid://bh1g0i5tbgvlf" path="res://visual/album/2.png" id="3_57ya1"]
+[ext_resource type="Texture2D" uid="uid://bi7vpptdlxc14" path="res://visual/album/3.png" id="4_cmxgf"]
+[ext_resource type="Texture2D" uid="uid://br5y4dtcxcxi4" path="res://visual/album/4.png" id="5_ck04o"]
+[ext_resource type="Texture2D" uid="uid://dcl3yctb4mgqg" path="res://visual/album/5.png" id="6_bbshg"]
+[ext_resource type="Texture2D" uid="uid://crxddg2q14jim" path="res://visual/album/6.png" id="7_qllpk"]
+[ext_resource type="Texture2D" uid="uid://djremc1cnywjl" path="res://visual/album/7.png" id="8_66osk"]
+[ext_resource type="Texture2D" uid="uid://bsbvjo2vho2wx" path="res://visual/album/8.png" id="9_88p0y"]
+[ext_resource type="Texture2D" uid="uid://csr2nckwej232" path="res://visual/album/9.png" id="10_et24x"]
+[ext_resource type="Texture2D" uid="uid://cd4xxkd22iim5" path="res://visual/album/10.png" id="11_36628"]
+[ext_resource type="Texture2D" uid="uid://dwucuw60lxgnh" path="res://visual/album/11.png" id="12_juhjm"]
+[ext_resource type="Texture2D" uid="uid://b7jydo15tdy0n" path="res://visual/album/12.png" id="13_rffcg"]
+
+[node name="Album" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ApplicationControls" parent="." instance=ExtResource("1_cqyur")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -360.0
+offset_right = 685.0
+offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.855181, 0.855181)
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_uu01v")
+speed = 9.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SmoothScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_eiq1m")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_57ya1")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_cmxgf")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ck04o")
+
+[node name="TextureRect5" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_bbshg")
+
+[node name="TextureRect6" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_qllpk")
+
+[node name="TextureRect7" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_66osk")
+
+[node name="TextureRect8" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_88p0y")
+
+[node name="TextureRect9" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_et24x")
+
+[node name="TextureRect10" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_36628")
+
+[node name="TextureRect11" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_juhjm")
+
+[node name="TextureRect12" type="TextureRect" parent="Control/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_rffcg")

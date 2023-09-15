@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d2p58ngrkwytp"]
+
+[ext_resource type="FontFile" uid="uid://cm0rddnrdu5nq" path="res://visual/ui/theme/MishamolPuffedBun-Regular.otf" id="1_cke3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nuk2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxehp"]
+bg_color = Color(0.901961, 0.639216, 0, 1)
+expand_margin_left = 30.0
+expand_margin_top = 15.0
+expand_margin_right = 30.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86sa0"]
+content_margin_left = 30.0
+content_margin_top = 15.0
+content_margin_right = 30.0
+content_margin_bottom = 5.0
+bg_color = Color(0.145098, 0.141176, 0.14902, 1)
+
+[resource]
+default_font = ExtResource("1_cke3h")
+default_font_size = 64
+Button/font_sizes/font_size = 50
+Button/styles/focus = SubResource("StyleBoxEmpty_nuk2m")
+Button/styles/hover = SubResource("StyleBoxFlat_cxehp")
+Button/styles/normal = SubResource("StyleBoxFlat_86sa0")
+Button/styles/pressed = SubResource("StyleBoxFlat_86sa0")
