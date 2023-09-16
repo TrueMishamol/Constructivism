@@ -15,12 +15,13 @@ run/main_scene="res://scenes/scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0.403922, 0.443137, 0.498039, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://visual/ui/constructivism.png"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

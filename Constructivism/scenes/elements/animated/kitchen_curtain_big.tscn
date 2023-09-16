@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn0rsld757n0"]
+
+[ext_resource type="PackedScene" uid="uid://ojgv7j2dtb75" path="res://visual/3d/animated_kitchen_curtain_big.gltf" id="1_bji85"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcgoe"]
+size = Vector3(0.0278304, 3.03007, 4.45522)
+
+[node name="KitchenCurtainBig" type="StaticBody3D"]
+
+[node name="animated_kitchen_curtain_big" parent="." instance=ExtResource("1_bji85")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19797, 1.4946, -6.25171)
+shape = SubResource("BoxShape3D_lcgoe")
