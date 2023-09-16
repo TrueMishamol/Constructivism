@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://budhyehuti3g2"
+uid="uid://cofj551me5u44"
 path.s3tc="res://.godot/imported/Fabric018_1K_NormalDX.jpg-2458864b64414f7de2764129ad759320.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -25,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://visual/blender_export_2/static/textures/Fabric018_1K_NormalDX.jpg"
+roughness/src_normal="res://visual/3d_gltf/textures/Fabric018_1K_NormalDX.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

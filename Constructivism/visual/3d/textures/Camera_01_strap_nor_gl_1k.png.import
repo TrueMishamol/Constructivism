@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cox3udd4ker4c"
+uid="uid://chj8cibhmwxi5"
 path.s3tc="res://.godot/imported/Camera_01_strap_nor_gl_1k.png-451c6e934106a42975b4ead05f815e4a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -25,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://visual/blender_export_2/static/textures/Camera_01_strap_nor_gl_1k.png"
+roughness/src_normal="res://visual/3d_gltf/textures/Camera_01_strap_nor_gl_1k.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
