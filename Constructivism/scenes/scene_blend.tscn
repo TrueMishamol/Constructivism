@@ -1,0 +1,215 @@
+[gd_scene load_steps=17 format=3 uid="uid://1v3g3avgo8mo"]
+
+[ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_feg23"]
+[ext_resource type="PackedScene" uid="uid://coim8nk66yo7q" path="res://scenes/ui/menu.tscn" id="2_ocatb"]
+[ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="3_gr6iv"]
+[ext_resource type="PackedScene" uid="uid://bcyidxrssrans" path="res://scenes/elements/ceiling_lamp.tscn" id="4_00l3a"]
+[ext_resource type="PackedScene" uid="uid://dm2uxmethslft" path="res://visual/3d/bathroom.blend" id="4_8fyx2"]
+[ext_resource type="PackedScene" uid="uid://bwtgf1ynixg5j" path="res://scenes/elements/door.tscn" id="5_jts1h"]
+[ext_resource type="PackedScene" uid="uid://cmx04fcgirbvg" path="res://visual/3d/bedroom.blend" id="5_xw1p6"]
+[ext_resource type="PackedScene" uid="uid://e0xc85u31i3c" path="res://visual/3d/guestroom.blend" id="6_ni8vl"]
+[ext_resource type="Environment" uid="uid://duptljlaq5kv1" path="res://visual/enviroment/enviroment_optimized.tres" id="6_vxwd1"]
+[ext_resource type="PackedScene" uid="uid://bkc1kxhi6hmhg" path="res://visual/3d/hall.blend" id="7_el47r"]
+[ext_resource type="PackedScene" uid="uid://d1uuiyu1pi8fg" path="res://visual/3d/house.blend" id="8_c7n7u"]
+[ext_resource type="PackedScene" uid="uid://hm3j4g0c48fj" path="res://visual/3d/kitchen.blend" id="9_j5dl8"]
+[ext_resource type="PackedScene" uid="uid://cjmuad6dq85n2" path="res://visual/3d/livingroom.blend" id="10_s6w1w"]
+[ext_resource type="PackedScene" uid="uid://cjr888223xohc" path="res://visual/3d/office.blend" id="11_uefee"]
+[ext_resource type="PackedScene" uid="uid://8qbrxuglxlap" path="res://visual/3d/restzone.blend" id="12_vfusi"]
+[ext_resource type="PackedScene" uid="uid://tojsci8yq7s2" path="res://visual/3d/wardrobe.blend" id="13_vckau"]
+
+[node name="Scene" type="Node3D"]
+
+[node name="ApplicationControls" parent="." instance=ExtResource("1_feg23")]
+
+[node name="Menu" parent="." instance=ExtResource("2_ocatb")]
+
+[node name="Player" parent="." instance=ExtResource("3_gr6iv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96947, 0.079721, -3.71892)
+
+[node name="House" type="Node3D" parent="."]
+
+[node name="Mesh" type="Node3D" parent="House"]
+
+[node name="bathroom" parent="House/Mesh" instance=ExtResource("4_8fyx2")]
+
+[node name="bedroom" parent="House/Mesh" instance=ExtResource("5_xw1p6")]
+
+[node name="guestroom" parent="House/Mesh" instance=ExtResource("6_ni8vl")]
+
+[node name="hall" parent="House/Mesh" instance=ExtResource("7_el47r")]
+
+[node name="house" parent="House/Mesh" instance=ExtResource("8_c7n7u")]
+
+[node name="kitchen" parent="House/Mesh" instance=ExtResource("9_j5dl8")]
+
+[node name="livingroom" parent="House/Mesh" instance=ExtResource("10_s6w1w")]
+
+[node name="office" parent="House/Mesh" instance=ExtResource("11_uefee")]
+
+[node name="restzone" parent="House/Mesh" instance=ExtResource("12_vfusi")]
+
+[node name="wardrobe" parent="House/Mesh" instance=ExtResource("13_vckau")]
+
+[node name="Lighting" type="Node3D" parent="House"]
+
+[node name="CeilingLamps" type="Node3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.81503, 0, -8.0989)
+
+[node name="CeilingLamp" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30764, 2.93014, 3.51012)
+
+[node name="CeilingLamp2" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30764, 2.93014, 2.51412)
+
+[node name="CeilingLamp22" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877729, 2.93014, 3.63001)
+
+[node name="CeilingLamp23" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877729, 2.93014, 2.65337)
+
+[node name="CeilingLamp24" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26146, 2.93014, -0.993998)
+
+[node name="CeilingLamp25" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26146, 2.93014, -1.98586)
+
+[node name="CeilingLamp26" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26146, 2.93014, -2.96029)
+
+[node name="CeilingLamp27" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9986, 2.93014, -0.993998)
+
+[node name="CeilingLamp28" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9986, 2.93014, -1.98586)
+
+[node name="CeilingLamp29" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9986, 2.93014, -2.96029)
+
+[node name="CeilingLamp3" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30764, 2.93014, 1.51955)
+
+[node name="CeilingLamp4" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30764, 2.93014, 0.472416)
+
+[node name="CeilingLamp5" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30764, 2.93014, -0.505949)
+
+[node name="CeilingLamp6" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07185, 2.93014, 1.29756)
+
+[node name="CeilingLamp9" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07185, 2.93014, 2.33139)
+
+[node name="CeilingLamp10" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07185, 2.93014, 3.32137)
+
+[node name="CeilingLamp13" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06991, 2.93014, 1.29756)
+
+[node name="CeilingLamp16" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06991, 2.93014, 0.340001)
+
+[node name="CeilingLamp17" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66731, 2.93014, -2.2772)
+
+[node name="CeilingLamp18" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67131, 2.93014, -2.2772)
+
+[node name="CeilingLamp19" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663521, 2.93014, -2.2772)
+
+[node name="CeilingLamp30" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701216, 2.93014, -3.24884)
+
+[node name="CeilingLamp31" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08986, 2.93014, -3.32839)
+
+[node name="CeilingLamp33" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25345, 2.93014, -3.06815)
+
+[node name="CeilingLamp34" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25345, 2.93014, -2.06854)
+
+[node name="CeilingLamp32" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08986, 2.93014, -2.36249)
+
+[node name="CeilingLamp20" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66416, 2.93014, -3.2602)
+
+[node name="CeilingLamp21" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66449, 2.93014, -3.26892)
+
+[node name="CeilingLamp14" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06991, 2.93014, 2.33139)
+
+[node name="CeilingLamp15" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06991, 2.93014, 3.32137)
+
+[node name="CeilingLamp11" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07243, 2.93014, 3.32137)
+
+[node name="CeilingLamp12" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0874, 2.93014, 3.32137)
+
+[node name="CeilingLamp7" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03317, 2.93014, 1.29756)
+
+[node name="CeilingLamp8" parent="House/Lighting/CeilingLamps" instance=ExtResource("4_00l3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02391, 2.93322, 1.29058)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30228, 2.38564, -5.72932)
+light_energy = 0.04
+shadow_enabled = true
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.29916, 2.3593, -5.74007)
+light_energy = 0.2
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6366, 1.56021, -9.23763)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15804, 1.6485, -10.6539)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0654, 2.40309, -5.09226)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9306, 2.3593, -5.2381)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="House/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7968, 2.54262, -5.85781)
+
+[node name="Doors" type="Node3D" parent="House"]
+
+[node name="Door" parent="House/Doors" instance=ExtResource("5_jts1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2688, 0, -3.03445)
+
+[node name="Door2" parent="House/Doors" instance=ExtResource("5_jts1h")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.16774, 5.96046e-08, -5.65453)
+
+[node name="Door4" parent="House/Doors" instance=ExtResource("5_jts1h")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.96046, -1.19209e-07, -9.45518)
+
+[node name="Door7" parent="House/Doors" instance=ExtResource("5_jts1h")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.96046, -1.19209e-07, -7.06786)
+
+[node name="Door5" parent="House/Doors" instance=ExtResource("5_jts1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.32465, -1.19209e-07, -9.48957)
+
+[node name="Door6" parent="House/Doors" instance=ExtResource("5_jts1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94769, -1.19209e-07, -8.86627)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.893377, 0.449218, 0.00903704, -0.0350158, -0.0896612, 0.995357, 0.447942, 0.888912, 0.0958309, 0, 0, 0)
+light_energy = 1.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_vxwd1")

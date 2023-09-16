@@ -1,12 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfrqnep114oaa"]
+[gd_scene load_steps=17 format=3 uid="uid://dfrqnep114oaa"]
 
-[ext_resource type="PackedScene" uid="uid://b822grl85ca2y" path="res://visual/blender_export/house.gltf" id="1_awfk0"]
 [ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_k0y54"]
 [ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="2_4lyls"]
 [ext_resource type="PackedScene" uid="uid://coim8nk66yo7q" path="res://scenes/ui/menu.tscn" id="2_oww87"]
-[ext_resource type="Environment" uid="uid://duptljlaq5kv1" path="res://visual/enviroment/enviroment2.tres" id="4_o0yhu"]
 [ext_resource type="PackedScene" uid="uid://bcyidxrssrans" path="res://scenes/elements/ceiling_lamp.tscn" id="4_qxxxb"]
+[ext_resource type="PackedScene" uid="uid://dawlhlj3qa81t" path="res://visual/3d_gltf/bathroom.gltf" id="4_qyp78"]
+[ext_resource type="PackedScene" uid="uid://bhesjrg6i4ba6" path="res://visual/3d_gltf/bedroom.gltf" id="5_sdwli"]
+[ext_resource type="Environment" uid="uid://duptljlaq5kv1" path="res://visual/enviroment/enviroment_optimized.tres" id="6_qakcn"]
+[ext_resource type="PackedScene" uid="uid://cvrpu2t5j471k" path="res://visual/3d_gltf/guestroom.gltf" id="6_ty2ke"]
 [ext_resource type="PackedScene" uid="uid://bwtgf1ynixg5j" path="res://scenes/elements/door.tscn" id="7_8jaxq"]
+[ext_resource type="PackedScene" uid="uid://df7jd6om2d3sn" path="res://visual/3d_gltf/hall.gltf" id="7_l3ua7"]
+[ext_resource type="PackedScene" uid="uid://blqsh8ucaku2k" path="res://visual/3d_gltf/house.gltf" id="8_pehvc"]
+[ext_resource type="PackedScene" uid="uid://mc3euyitb78c" path="res://visual/3d_gltf/kitchen.gltf" id="9_re6t2"]
+[ext_resource type="PackedScene" uid="uid://ct4j7mom8xv6v" path="res://visual/3d_gltf/livingroom.gltf" id="10_326ej"]
+[ext_resource type="PackedScene" uid="uid://dhq7kgq53f1p4" path="res://visual/3d_gltf/office.gltf" id="11_5jxf0"]
+[ext_resource type="PackedScene" uid="uid://bk580d32achpj" path="res://visual/3d_gltf/restzone.gltf" id="12_iwp5x"]
+[ext_resource type="PackedScene" uid="uid://vnfunhlryxca" path="res://visual/3d_gltf/wardrobe.gltf" id="13_gbu6o"]
 
 [node name="Scene" type="Node3D"]
 
@@ -19,7 +28,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96947, 0.079721, -3.71892)
 
 [node name="House" type="Node3D" parent="."]
 
-[node name="HouseMesh" parent="House" instance=ExtResource("1_awfk0")]
+[node name="Static" type="Node3D" parent="House"]
+
+[node name="bathroom" parent="House/Static" instance=ExtResource("4_qyp78")]
+
+[node name="bedroom" parent="House/Static" instance=ExtResource("5_sdwli")]
+
+[node name="guestroom" parent="House/Static" instance=ExtResource("6_ty2ke")]
+
+[node name="hall" parent="House/Static" instance=ExtResource("7_l3ua7")]
+
+[node name="house" parent="House/Static" instance=ExtResource("8_pehvc")]
+
+[node name="kitchen" parent="House/Static" instance=ExtResource("9_re6t2")]
+
+[node name="livingroom" parent="House/Static" instance=ExtResource("10_326ej")]
+
+[node name="office" parent="House/Static" instance=ExtResource("11_5jxf0")]
+
+[node name="restzone" parent="House/Static" instance=ExtResource("12_iwp5x")]
+
+[node name="wardrobe" parent="House/Static" instance=ExtResource("13_gbu6o")]
 
 [node name="Lighting" type="Node3D" parent="House"]
 
@@ -183,4 +212,4 @@ transform = Transform3D(-0.893377, 0.449218, 0.00903704, -0.0350158, -0.0896612,
 light_energy = 1.4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_o0yhu")
+environment = ExtResource("6_qakcn")
