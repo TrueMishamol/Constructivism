@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dfrqnep114oaa"]
+[gd_scene load_steps=45 format=3 uid="uid://dfrqnep114oaa"]
 
 [ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_k0y54"]
 [ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="2_4lyls"]
@@ -28,9 +28,13 @@
 [ext_resource type="PackedScene" uid="uid://c16io6d04bom8" path="res://scenes/furniture/animated/guestroom_curtain.tscn" id="21_1br1b"]
 [ext_resource type="PackedScene" uid="uid://cumns3bayb0ue" path="res://scenes/furniture/animated/bedroom_wardrobe.tscn" id="21_03ux6"]
 [ext_resource type="PackedScene" uid="uid://bgbi2jekb1f7b" path="res://scenes/furniture/animated/kitchen_curtain_small.tscn" id="22_2oqt8"]
+[ext_resource type="PackedScene" uid="uid://87h15j00jij0" path="res://scenes/furniture/animated/livingroom_glass_table.tscn" id="22_qn47n"]
+[ext_resource type="PackedScene" uid="uid://ceyg3uijx0eih" path="res://scenes/furniture/animated/bedroom_nightstand.tscn" id="23_5ikbi"]
 [ext_resource type="PackedScene" uid="uid://hfilyltb3nd8" path="res://visual/3d/movable.gltf" id="23_u1r8u"]
 [ext_resource type="PackedScene" uid="uid://ccdniqbkxwa" path="res://scenes/furniture/animated/bedroom_curtain_left.tscn" id="23_uu3pu"]
+[ext_resource type="PackedScene" uid="uid://c2p05j5i0cg80" path="res://scenes/furniture/animated/bathroom_glass_door.tscn" id="24_gt5q2"]
 [ext_resource type="PackedScene" uid="uid://gfvf3gudprgp" path="res://scenes/furniture/animated/bedroom_curtain_right.tscn" id="24_tk6si"]
+[ext_resource type="PackedScene" uid="uid://borcmnnse8nqc" path="res://scenes/furniture/animated/bathroom_column_closet.tscn" id="25_pv1fp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb71t"]
 resource_name = "Wallpaper"
@@ -274,6 +278,17 @@ shape = SubResource("ConcavePolygonShape3D_eff7r")
 [node name="LivingroomPartition" parent="House/Animated" instance=ExtResource("19_pwkkg")]
 
 [node name="BedroomWardrobe" parent="House/Animated" instance=ExtResource("21_03ux6")]
+
+[node name="LivingroomGlassTable" parent="House/Animated" instance=ExtResource("22_qn47n")]
+
+[node name="BedroomNightstand" parent="House/Animated" instance=ExtResource("23_5ikbi")]
+
+[node name="BedroomNightstand2" parent="House/Animated" instance=ExtResource("23_5ikbi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39, 0, 0)
+
+[node name="BathroomGlassDoor" parent="House/Animated" instance=ExtResource("24_gt5q2")]
+
+[node name="BathroomColumnCloset" parent="House/Animated" instance=ExtResource("25_pv1fp")]
 
 [node name="Lighting" type="Node3D" parent="House"]
 
