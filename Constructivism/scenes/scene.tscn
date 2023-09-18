@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dfrqnep114oaa"]
+[gd_scene load_steps=40 format=3 uid="uid://dfrqnep114oaa"]
 
 [ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_k0y54"]
 [ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="2_4lyls"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://boqqwd1xcvl6m" path="res://visual/3d/bedroom.gltf" id="5_sdwli"]
 [ext_resource type="Environment" uid="uid://duptljlaq5kv1" path="res://visual/enviroment/enviroment_optimized.tres" id="6_qakcn"]
 [ext_resource type="PackedScene" uid="uid://dj8t0u5vggi4" path="res://visual/3d/guestroom.gltf" id="6_ty2ke"]
-[ext_resource type="PackedScene" uid="uid://bwtgf1ynixg5j" path="res://scenes/elements/door.tscn" id="7_8jaxq"]
+[ext_resource type="PackedScene" uid="uid://bwtgf1ynixg5j" path="res://scenes/elements/animated/door.tscn" id="7_8jaxq"]
 [ext_resource type="PackedScene" uid="uid://ciskv25i10tu7" path="res://visual/3d/hall.gltf" id="7_l3ua7"]
 [ext_resource type="PackedScene" uid="uid://b4vc5e8b1htuo" path="res://visual/3d/kitchen.gltf" id="9_re6t2"]
 [ext_resource type="PackedScene" uid="uid://by4shjmr0vchl" path="res://visual/3d/livingroom.gltf" id="10_326ej"]
@@ -21,10 +21,15 @@
 [ext_resource type="Texture2D" uid="uid://cyx6cwe081s3j" path="res://visual/3d/textures/Paper001_1K_NormalDX.jpg" id="16_uv0rp"]
 [ext_resource type="Texture2D" uid="uid://cwbr60vqvp774" path="res://visual/3d/textures/oak D_jpg.jpg" id="17_5mesj"]
 [ext_resource type="Texture2D" uid="uid://bqv3oq52hfuli" path="res://visual/3d/textures/oak R_jpg.png" id="18_a6hdn"]
-[ext_resource type="PackedScene" uid="uid://dn0rsld757n0" path="res://scenes/elements/animated/kitchen_curtain_big.tscn" id="19_ih7wq"]
+[ext_resource type="PackedScene" uid="uid://rutieogjb6e" path="res://scenes/elements/animated/kitchen_curtain_big.tscn" id="19_ih7wq"]
+[ext_resource type="PackedScene" uid="uid://bg328fskxj4wv" path="res://scenes/elements/animated/kitchen_curtain_medium.tscn" id="20_6dv5d"]
+[ext_resource type="PackedScene" uid="uid://c16io6d04bom8" path="res://scenes/elements/animated/guestroom_curtain.tscn" id="21_1br1b"]
 [ext_resource type="PackedScene" uid="uid://bxq10utcvbhjt" path="res://visual/3d/animated.gltf" id="21_jh3tg"]
+[ext_resource type="PackedScene" uid="uid://bgbi2jekb1f7b" path="res://scenes/elements/animated/kitchen_curtain_small.tscn" id="22_2oqt8"]
 [ext_resource type="PackedScene" uid="uid://b7ji4j6lftxvh" path="res://visual/3d/house_curtains.gltf" id="22_aj1sj"]
 [ext_resource type="PackedScene" uid="uid://hfilyltb3nd8" path="res://visual/3d/movable.gltf" id="23_u1r8u"]
+[ext_resource type="PackedScene" uid="uid://ccdniqbkxwa" path="res://scenes/elements/animated/bedroom_curtain_left.tscn" id="23_uu3pu"]
+[ext_resource type="PackedScene" uid="uid://gfvf3gudprgp" path="res://scenes/elements/animated/bedroom_curtain_right.tscn" id="24_tk6si"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb71t"]
 resource_name = "Wallpaper"
@@ -264,6 +269,19 @@ shape = SubResource("ConcavePolygonShape3D_eff7r")
 [node name="Animated" type="Node3D" parent="House"]
 
 [node name="KitchenCurtainBig" parent="House/Animated" instance=ExtResource("19_ih7wq")]
+
+[node name="KitchenCurtainMedium" parent="House/Animated" instance=ExtResource("20_6dv5d")]
+
+[node name="KitchenCurtainSmall" parent="House/Animated" instance=ExtResource("22_2oqt8")]
+
+[node name="BedroomCurtainLeft" parent="House/Animated" instance=ExtResource("23_uu3pu")]
+
+[node name="BedroomCurtainRight" parent="House/Animated" instance=ExtResource("24_tk6si")]
+
+[node name="GuestroomCurtain" type="Node3D" parent="House/Animated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133033, 0, 0)
+
+[node name="GuestroomCurtain" parent="House/Animated/GuestroomCurtain" instance=ExtResource("21_1br1b")]
 
 [node name="Lighting" type="Node3D" parent="House"]
 

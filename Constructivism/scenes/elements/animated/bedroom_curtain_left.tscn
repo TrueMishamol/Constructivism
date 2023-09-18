@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccdniqbkxwa"]
+
+[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="1_oigst"]
+[ext_resource type="PackedScene" uid="uid://bw7jgb7o41gm4" path="res://visual/3d/animated_bedroom_curtain_left.gltf" id="2_p180c"]
+[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="3_lwtfo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ab6rl"]
+size = Vector3(0.02, 3, 1.5371)
+
+[node name="BedroomCurtainLeft" type="StaticBody3D" node_paths=PackedStringArray("interactable_3d_model")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_oigst")
+interactable_3d_model = NodePath("animated_bedroom_curtain_left")
+
+[node name="animated_bedroom_curtain_left" parent="." instance=ExtResource("2_p180c")]
+script = ExtResource("3_lwtfo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1278, 1.5, -10.8541)
+shape = SubResource("BoxShape3D_ab6rl")

@@ -43,6 +43,7 @@ func turn_on():
 	animating = true
 	show()
 	animation.play("fade_in")
+	application_controls.pause()
 
 
 func turn_off():
@@ -57,5 +58,5 @@ func _on_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		hide()
 		
-	if anim_name == "fade_in":
-		application_controls.pause()
+#	if anim_name == "fade_in":
+#		application_controls.pause()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgbi2jekb1f7b"]
+
+[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="1_fycps"]
+[ext_resource type="PackedScene" uid="uid://cbhdch84mx4dc" path="res://visual/3d/animated_kitchen_curtain_small.gltf" id="2_1iy50"]
+[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="3_oob1i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mvvoe"]
+size = Vector3(1, 3, 0.001)
+
+[node name="KitchenCurtainSmall" type="StaticBody3D" node_paths=PackedStringArray("interactable_3d_model")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_fycps")
+interactable_3d_model = NodePath("animated_kitchen_curtain_small")
+
+[node name="animated_kitchen_curtain_small" parent="." instance=ExtResource("2_1iy50")]
+script = ExtResource("3_oob1i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56989, 1.5, -4.01534)
+shape = SubResource("BoxShape3D_mvvoe")

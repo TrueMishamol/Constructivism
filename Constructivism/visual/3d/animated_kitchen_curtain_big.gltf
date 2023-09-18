@@ -3,11 +3,8 @@
 		"generator":"Khronos glTF Blender I/O v3.6.27",
 		"version":"2.0"
 	},
-	"scene":1,
+	"scene":0,
 	"scenes":[
-		{
-			"name":"Scene"
-		},
 		{
 			"name":"Scene.001",
 			"nodes":[
@@ -3513,9 +3510,9 @@
 		{
 			"bufferView":244,
 			"componentType":5126,
-			"count":122,
+			"count":121,
 			"max":[
-				5.041666666666667
+				5
 			],
 			"min":[
 				0
@@ -3525,7 +3522,7 @@
 		{
 			"bufferView":245,
 			"componentType":5126,
-			"count":14640,
+			"count":14520,
 			"type":"SCALAR"
 		}
 	],
@@ -4996,13 +4993,13 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":488,
+			"byteLength":484,
 			"byteOffset":6659672
 		},
 		{
 			"buffer":0,
-			"byteLength":58560,
-			"byteOffset":6660160
+			"byteLength":58080,
+			"byteOffset":6660156
 		}
 	],
 	"samplers":[
@@ -5013,7 +5010,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":6718720,
+			"byteLength":6718236,
 			"uri":"animated_kitchen_curtain_big.bin"
 		}
 	]

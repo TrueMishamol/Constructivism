@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 
+@export var model_with_animation: Node
 @export var animation: AnimationPlayer
 
 
