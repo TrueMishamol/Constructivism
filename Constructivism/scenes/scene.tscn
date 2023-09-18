@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dfrqnep114oaa"]
+[gd_scene load_steps=43 format=3 uid="uid://dfrqnep114oaa"]
 
 [ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_k0y54"]
 [ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="2_4lyls"]
@@ -22,9 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://cwbr60vqvp774" path="res://visual/3d/textures/oak D_jpg.jpg" id="17_5mesj"]
 [ext_resource type="Texture2D" uid="uid://bqv3oq52hfuli" path="res://visual/3d/textures/oak R_jpg.png" id="18_a6hdn"]
 [ext_resource type="PackedScene" uid="uid://rutieogjb6e" path="res://scenes/elements/animated/kitchen_curtain_big.tscn" id="19_ih7wq"]
+[ext_resource type="PackedScene" uid="uid://bn3b0lcptejjc" path="res://scenes/elements/animated/guestroom_table.tscn" id="19_p8cci"]
 [ext_resource type="PackedScene" uid="uid://dsw7jnbpecgov" path="res://scenes/elements/animated/livingroom_partition.tscn" id="19_pwkkg"]
 [ext_resource type="PackedScene" uid="uid://bg328fskxj4wv" path="res://scenes/elements/animated/kitchen_curtain_medium.tscn" id="20_6dv5d"]
 [ext_resource type="PackedScene" uid="uid://c16io6d04bom8" path="res://scenes/elements/animated/guestroom_curtain.tscn" id="21_1br1b"]
+[ext_resource type="PackedScene" uid="uid://cumns3bayb0ue" path="res://scenes/elements/animated/bedroom_wardrobe.tscn" id="21_03ux6"]
 [ext_resource type="PackedScene" uid="uid://bxq10utcvbhjt" path="res://visual/3d/animated.gltf" id="21_jh3tg"]
 [ext_resource type="PackedScene" uid="uid://bgbi2jekb1f7b" path="res://scenes/elements/animated/kitchen_curtain_small.tscn" id="22_2oqt8"]
 [ext_resource type="PackedScene" uid="uid://b7ji4j6lftxvh" path="res://visual/3d/house_curtains.gltf" id="22_aj1sj"]
@@ -269,22 +271,11 @@ shape = SubResource("ConcavePolygonShape3D_eff7r")
 
 [node name="Animated" type="Node3D" parent="House"]
 
+[node name="GuestroomTable" parent="House/Animated" instance=ExtResource("19_p8cci")]
+
 [node name="LivingroomPartition" parent="House/Animated" instance=ExtResource("19_pwkkg")]
 
-[node name="KitchenCurtainBig" parent="House/Animated" instance=ExtResource("19_ih7wq")]
-
-[node name="KitchenCurtainMedium" parent="House/Animated" instance=ExtResource("20_6dv5d")]
-
-[node name="KitchenCurtainSmall" parent="House/Animated" instance=ExtResource("22_2oqt8")]
-
-[node name="BedroomCurtainLeft" parent="House/Animated" instance=ExtResource("23_uu3pu")]
-
-[node name="BedroomCurtainRight" parent="House/Animated" instance=ExtResource("24_tk6si")]
-
-[node name="GuestroomCurtain" type="Node3D" parent="House/Animated"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133033, 0, 0)
-
-[node name="GuestroomCurtain" parent="House/Animated/GuestroomCurtain" instance=ExtResource("21_1br1b")]
+[node name="BedroomWardrobe" parent="House/Animated" instance=ExtResource("21_03ux6")]
 
 [node name="Lighting" type="Node3D" parent="House"]
 
@@ -423,13 +414,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9306, 2.3593, -5.2381)
 [node name="OmniLight3D5" type="OmniLight3D" parent="House/Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7968, 2.54262, -5.85781)
 
+[node name="Curtains" type="Node3D" parent="House"]
+
+[node name="KitchenCurtainBig" parent="House/Curtains" instance=ExtResource("19_ih7wq")]
+
+[node name="KitchenCurtainMedium" parent="House/Curtains" instance=ExtResource("20_6dv5d")]
+
+[node name="KitchenCurtainSmall" parent="House/Curtains" instance=ExtResource("22_2oqt8")]
+
+[node name="BedroomCurtainLeft" parent="House/Curtains" instance=ExtResource("23_uu3pu")]
+
+[node name="BedroomCurtainRight" parent="House/Curtains" instance=ExtResource("24_tk6si")]
+
+[node name="GuestroomCurtain" type="Node3D" parent="House/Curtains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133033, 0, 0)
+
+[node name="GuestroomCurtain" parent="House/Curtains/GuestroomCurtain" instance=ExtResource("21_1br1b")]
+
 [node name="Doors" type="Node3D" parent="House"]
 
 [node name="Door" parent="House/Doors" instance=ExtResource("7_8jaxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2688, 0, -3.03445)
 
 [node name="Door2" parent="House/Doors" instance=ExtResource("7_8jaxq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.16774, 5.96046e-08, -5.65453)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.16774, 5.96046e-08, -5.65641)
 
 [node name="Door4" parent="House/Doors" instance=ExtResource("7_8jaxq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.96046, -1.19209e-07, -9.45518)
