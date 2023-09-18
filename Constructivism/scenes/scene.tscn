@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dfrqnep114oaa"]
+[gd_scene load_steps=41 format=3 uid="uid://dfrqnep114oaa"]
 
 [ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_k0y54"]
 [ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="2_4lyls"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cwbr60vqvp774" path="res://visual/3d/textures/oak D_jpg.jpg" id="17_5mesj"]
 [ext_resource type="Texture2D" uid="uid://bqv3oq52hfuli" path="res://visual/3d/textures/oak R_jpg.png" id="18_a6hdn"]
 [ext_resource type="PackedScene" uid="uid://rutieogjb6e" path="res://scenes/elements/animated/kitchen_curtain_big.tscn" id="19_ih7wq"]
+[ext_resource type="PackedScene" uid="uid://dsw7jnbpecgov" path="res://scenes/elements/animated/livingroom_partition.tscn" id="19_pwkkg"]
 [ext_resource type="PackedScene" uid="uid://bg328fskxj4wv" path="res://scenes/elements/animated/kitchen_curtain_medium.tscn" id="20_6dv5d"]
 [ext_resource type="PackedScene" uid="uid://c16io6d04bom8" path="res://scenes/elements/animated/guestroom_curtain.tscn" id="21_1br1b"]
 [ext_resource type="PackedScene" uid="uid://bxq10utcvbhjt" path="res://visual/3d/animated.gltf" id="21_jh3tg"]
@@ -267,6 +268,8 @@ shape = SubResource("ConcavePolygonShape3D_eff7r")
 [node name="house_ceilings" parent="House/Static" instance=ExtResource("14_y87x1")]
 
 [node name="Animated" type="Node3D" parent="House"]
+
+[node name="LivingroomPartition" parent="House/Animated" instance=ExtResource("19_pwkkg")]
 
 [node name="KitchenCurtainBig" parent="House/Animated" instance=ExtResource("19_ih7wq")]
 
