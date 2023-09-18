@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqqg7od6khy4i"]
 
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="1_4vn08"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="1_4vn08"]
 [ext_resource type="Texture2D" uid="uid://dc038nsck0q4p" path="res://visual/3d/textures/textura-dereva 212_jpg.jpg" id="2_v0di1"]
 [ext_resource type="Texture2D" uid="uid://cdnen5dksfaf3" path="res://visual/3d/textures/NormalMap 1_png.png" id="3_gi34h"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="4_iam0v"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="4_iam0v"]
 
 [sub_resource type="Animation" id="Animation_ymueb"]
 resource_name = "DrawerBottomAction"

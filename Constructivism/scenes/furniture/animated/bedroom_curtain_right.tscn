@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://gfvf3gudprgp"]
 
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="1_3fb3b"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="1_3fb3b"]
 [ext_resource type="PackedScene" uid="uid://cplp7midnr1o5" path="res://visual/3d/animated_bedroom_curtain_right.gltf" id="2_wxvr0"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="3_som4j"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="3_som4j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab6rl"]
 size = Vector3(0.02, 3, 1.5371)

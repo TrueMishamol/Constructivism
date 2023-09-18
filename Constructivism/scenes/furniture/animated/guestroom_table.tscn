@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://bn3b0lcptejjc"]
 
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="1_uxmmx"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="1_uxmmx"]
 [ext_resource type="Texture2D" uid="uid://1imeexqyj1wc" path="res://visual/3d/textures/black.jpg" id="2_xta2u"]
 [ext_resource type="Texture2D" uid="uid://cdnen5dksfaf3" path="res://visual/3d/textures/NormalMap 1_png.png" id="3_etniv"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="4_cu1jm"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="4_cu1jm"]
 
 [sub_resource type="Animation" id="Animation_ff3x0"]
 resource_name = "GuestroomTableAction"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwtgf1ynixg5j"]
 
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="1_h5k0u"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="2_r3lqd"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="1_h5k0u"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="2_r3lqd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhi8o"]
 resource_name = "Paint White"

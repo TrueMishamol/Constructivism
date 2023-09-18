@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dsw7jnbpecgov"]
 
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="1_qm0vu"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="1_qm0vu"]
 [ext_resource type="Texture2D" uid="uid://vskmglpkpo0a" path="res://visual/3d/textures/Paper001_1K_Color.jpg" id="2_qt5pl"]
 [ext_resource type="Texture2D" uid="uid://6emoh6vvakm0" path="res://visual/3d/textures/Paper001_1K_Roughness.png" id="3_tctnw"]
 [ext_resource type="Texture2D" uid="uid://cyx6cwe081s3j" path="res://visual/3d/textures/Paper001_1K_NormalDX.jpg" id="4_h8y17"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="5_1scm0"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="5_1scm0"]
 
 [sub_resource type="Animation" id="Animation_oexe3"]
 resource_name = "HouseCircularPartitionAction"

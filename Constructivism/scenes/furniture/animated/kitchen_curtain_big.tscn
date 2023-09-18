@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://rutieogjb6e"]
 
 [ext_resource type="PackedScene" uid="uid://ojgv7j2dtb75" path="res://visual/3d/animated_kitchen_curtain_big.gltf" id="1_bji85"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_body.gd" id="1_ohkne"]
-[ext_resource type="Script" path="res://scenes/elements/animated/interactable_model.gd" id="3_qmbua"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="1_ohkne"]
+[ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="3_qmbua"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lcgoe"]
 size = Vector3(0.02, 3, 4.455)
