@@ -3,11 +3,11 @@
 [ext_resource type="Theme" uid="uid://d2p58ngrkwytp" path="res://visual/ui/theme/puffed_bun.tres" id="1_55xp5"]
 [ext_resource type="Script" path="res://scenes/ui/menu.gd" id="2_05aoi"]
 [ext_resource type="Texture2D" uid="uid://cgq7gy4qck0h8" path="res://visual/ui/mishamol.svg" id="2_sb3vv"]
-[ext_resource type="Texture2D" uid="uid://c5t7hut1ogj3i" path="res://visual/plan/doors.svg" id="3_d6mle"]
-[ext_resource type="Script" path="res://visual/plan/plan_hover.gd" id="4_kvasr"]
-[ext_resource type="Texture2D" uid="uid://cght76ipus816" path="res://visual/plan/furniture.svg" id="5_mdfgd"]
-[ext_resource type="Texture2D" uid="uid://8yeqdxr6oitp" path="res://visual/plan/walls.svg" id="6_5qie1"]
-[ext_resource type="Texture2D" uid="uid://c0l1pjgxlp8to" path="res://visual/plan/windows.svg" id="7_8b3m7"]
+[ext_resource type="Texture2D" uid="uid://c5t7hut1ogj3i" path="res://visual/ui/plan/doors.svg" id="3_d6mle"]
+[ext_resource type="Script" path="res://visual/ui/plan/plan_hover.gd" id="4_ubsm8"]
+[ext_resource type="Texture2D" uid="uid://cght76ipus816" path="res://visual/ui/plan/furniture.svg" id="5_mdfgd"]
+[ext_resource type="Texture2D" uid="uid://8yeqdxr6oitp" path="res://visual/ui/plan/walls.svg" id="6_5qie1"]
+[ext_resource type="Texture2D" uid="uid://c0l1pjgxlp8to" path="res://visual/ui/plan/windows.svg" id="7_8b3m7"]
 
 [sub_resource type="Animation" id="Animation_v1tg2"]
 length = 0.001
@@ -161,19 +161,19 @@ scale = Vector2(0.727553, 0.727553)
 [node name="Doors" type="Sprite2D" parent="Menu/Control/Plan"]
 material = SubResource("ShaderMaterial_pj0ff")
 texture = ExtResource("3_d6mle")
-script = ExtResource("4_kvasr")
+script = ExtResource("4_ubsm8")
 
 [node name="Furniture" type="Sprite2D" parent="Menu/Control/Plan"]
 texture = ExtResource("5_mdfgd")
-script = ExtResource("4_kvasr")
+script = ExtResource("4_ubsm8")
 
 [node name="Walls" type="Sprite2D" parent="Menu/Control/Plan"]
 texture = ExtResource("6_5qie1")
-script = ExtResource("4_kvasr")
+script = ExtResource("4_ubsm8")
 
 [node name="Windows" type="Sprite2D" parent="Menu/Control/Plan"]
 texture = ExtResource("7_8b3m7")
-script = ExtResource("4_kvasr")
+script = ExtResource("4_ubsm8")
 
 [node name="Buttons" type="HBoxContainer" parent="Menu/Control"]
 layout_mode = 1
