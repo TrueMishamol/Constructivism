@@ -1,10 +1,13 @@
 extends Node
 
 
-@onready var menu = $"../Menu"
+@export var menu: CanvasLayer
 
 
 func _ready():
+	if menu == null:
+		menu = $"../Menu"
+	
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
 
 

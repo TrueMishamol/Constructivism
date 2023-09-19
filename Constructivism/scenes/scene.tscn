@@ -231,7 +231,8 @@ data = PackedVector3Array(7.098, 3, -4.8533, 7.098, 3, -5.6575, 7.225, 3, -5.657
 
 [node name="Scene" type="Node3D"]
 
-[node name="ApplicationControls" parent="." instance=ExtResource("1_k0y54")]
+[node name="ApplicationControls" parent="." node_paths=PackedStringArray("menu") instance=ExtResource("1_k0y54")]
+menu = NodePath("../Menu")
 
 [node name="Menu" parent="." instance=ExtResource("2_oww87")]
 

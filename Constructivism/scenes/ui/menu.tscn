@@ -1,13 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://coim8nk66yo7q"]
+[gd_scene load_steps=20 format=3 uid="uid://coim8nk66yo7q"]
 
 [ext_resource type="Theme" uid="uid://d2p58ngrkwytp" path="res://visual/ui/theme/puffed_bun.tres" id="1_55xp5"]
 [ext_resource type="Script" path="res://scenes/ui/menu.gd" id="2_05aoi"]
 [ext_resource type="Texture2D" uid="uid://cgq7gy4qck0h8" path="res://visual/ui/mishamol.svg" id="2_sb3vv"]
+[ext_resource type="Animation" uid="uid://ci8r443o44je3" path="res://visual/ui/animations/fade_in.res" id="2_svmeo"]
+[ext_resource type="Animation" uid="uid://bgkgslxpvi0ia" path="res://visual/ui/animations/fade_out.res" id="3_7gs22"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="3_b2v2p"]
 [ext_resource type="Texture2D" uid="uid://c5t7hut1ogj3i" path="res://visual/ui/plan/doors.svg" id="3_d6mle"]
 [ext_resource type="Script" path="res://visual/ui/plan/plan_hover.gd" id="4_ubsm8"]
 [ext_resource type="Texture2D" uid="uid://cght76ipus816" path="res://visual/ui/plan/furniture.svg" id="5_mdfgd"]
 [ext_resource type="Texture2D" uid="uid://8yeqdxr6oitp" path="res://visual/ui/plan/walls.svg" id="6_5qie1"]
 [ext_resource type="Texture2D" uid="uid://c0l1pjgxlp8to" path="res://visual/ui/plan/windows.svg" id="7_8b3m7"]
+[ext_resource type="PackedScene" uid="uid://bunoelg7xy04m" path="res://scenes/ui/album.tscn" id="11_1vc1y"]
+[ext_resource type="Theme" uid="uid://c4udbh26nv1al" path="res://visual/ui/theme/puffed_bun_small.tres" id="13_bya47"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="13_y2eji"]
+[ext_resource type="FontFile" uid="uid://cm0rddnrdu5nq" path="res://visual/ui/theme/MishamolPuffedBun-Regular.otf" id="14_6jeu8"]
 
 [sub_resource type="Animation" id="Animation_v1tg2"]
 length = 0.001
@@ -24,44 +31,18 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_bex2q"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5ch7h"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pqryh"]
 _data = {
 "RESET": SubResource("Animation_v1tg2"),
-"fade_in": SubResource("Animation_bex2q"),
-"fade_out": SubResource("Animation_5ch7h")
+"fade_in": ExtResource("2_svmeo"),
+"fade_out": ExtResource("3_7gs22")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pj0ff"]
+
+[sub_resource type="Theme" id="Theme_g360k"]
+default_font = ExtResource("14_6jeu8")
+default_font_size = 32
 
 [node name="Menu" type="CanvasLayer"]
 process_mode = 3
@@ -91,51 +72,145 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
 
-[node name="Control" type="Control" parent="Menu"]
+[node name="WelcomeMenu" type="Control" parent="Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -454.0
-offset_top = -252.0
-offset_right = 826.0
-offset_bottom = 468.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.716884, 0.716884)
+
+[node name="Title" type="Label" parent="Menu/WelcomeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.5
+offset_top = -287.0
+offset_right = 353.5
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+text = "Constructivism Interior Visualisation"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Controls" type="Label" parent="Menu/WelcomeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -60.0002
+offset_right = 83.0
+offset_bottom = 60.0002
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Walk: W A S D
+Interact: E
+
+Menu: ESC
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mishamol" type="Control" parent="Menu/WelcomeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.9998
+offset_top = 276.0
+offset_right = 84.9998
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_55xp5")
 
-[node name="Title" type="Label" parent="Menu/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -363.5
-offset_top = -382.319
-offset_right = 363.5
-offset_bottom = -314.319
-grow_horizontal = 2
-grow_vertical = 2
-text = "Constructivism Interior Visualisation"
+[node name="Mishamol" type="Sprite2D" parent="Menu/WelcomeMenu/Mishamol"]
+scale = Vector2(0.58489, 0.58489)
+texture = ExtResource("2_sb3vv")
 
-[node name="Controls" type="Label" parent="Menu/Control"]
+[node name="MadeBy" type="Label" parent="Menu/WelcomeMenu/Mishamol"]
+layout_mode = 0
+offset_left = -219.0
+offset_top = -29.0437
+offset_right = -52.9998
+offset_bottom = 38.9563
+theme_override_font_sizes/font_size = 27
+text = "made by"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" type="Control" parent="Menu" node_paths=PackedStringArray("quit_button", "sources_button", "album_button")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 238.803
-offset_top = 34.7637
-offset_right = 404.803
-offset_bottom = 154.764
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 36
+theme = ExtResource("1_55xp5")
+script = ExtResource("3_b2v2p")
+quit_button = NodePath("Buttons/Quit")
+sources_button = NodePath("Buttons/Sources")
+album_button = NodePath("Buttons/Album")
+
+[node name="Title" type="Label" parent="Menu/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.5
+offset_top = -287.0
+offset_right = 353.5
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+text = "Constructivism Interior Visualisation"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Controls" type="Label" parent="Menu/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 174.0
+offset_top = 9.00003
+offset_right = 340.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Walk: W A S D
 Interact: E
 Reset: R
@@ -143,104 +218,256 @@ Reset: R
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Plan" type="Control" parent="Menu/Control"]
+[node name="Plan" type="Control" parent="Menu/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -3.91431
-offset_top = 12.4449
-offset_right = -3.91431
-offset_bottom = 12.4449
+offset_top = 4.00003
+offset_bottom = 4.00003
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.727553, 0.727553)
+scale = Vector2(0.53148, 0.53148)
 
-[node name="Doors" type="Sprite2D" parent="Menu/Control/Plan"]
+[node name="Doors" type="Sprite2D" parent="Menu/PauseMenu/Plan"]
 material = SubResource("ShaderMaterial_pj0ff")
+position = Vector2(9.68549, -0.529022)
 texture = ExtResource("3_d6mle")
 script = ExtResource("4_ubsm8")
 
-[node name="Furniture" type="Sprite2D" parent="Menu/Control/Plan"]
+[node name="Furniture" type="Sprite2D" parent="Menu/PauseMenu/Plan"]
+position = Vector2(9.68549, -0.529022)
 texture = ExtResource("5_mdfgd")
 script = ExtResource("4_ubsm8")
 
-[node name="Walls" type="Sprite2D" parent="Menu/Control/Plan"]
+[node name="Walls" type="Sprite2D" parent="Menu/PauseMenu/Plan"]
+position = Vector2(9.68549, -0.529022)
 texture = ExtResource("6_5qie1")
 script = ExtResource("4_ubsm8")
 
-[node name="Windows" type="Sprite2D" parent="Menu/Control/Plan"]
+[node name="Windows" type="Sprite2D" parent="Menu/PauseMenu/Plan"]
+position = Vector2(9.68549, -0.529022)
 texture = ExtResource("7_8b3m7")
 script = ExtResource("4_ubsm8")
 
-[node name="Buttons" type="HBoxContainer" parent="Menu/Control"]
+[node name="Buttons" type="HBoxContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -301.5
-offset_top = 246.792
-offset_right = 301.5
-offset_bottom = 316.792
+offset_left = -257.5
+offset_top = 183.0
+offset_right = 257.5
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_55xp5")
 theme_override_constants/separation = 90
 alignment = 1
 
-[node name="Quit" type="Button" parent="Menu/Control/Buttons"]
-unique_name_in_owner = true
+[node name="Quit" type="Button" parent="Menu/PauseMenu/Buttons"]
 layout_mode = 2
+theme = ExtResource("1_55xp5")
 text = "Quit"
 
-[node name="GitHub" type="Button" parent="Menu/Control/Buttons"]
-unique_name_in_owner = true
+[node name="Sources" type="Button" parent="Menu/PauseMenu/Buttons"]
 layout_mode = 2
-text = "GitHub"
+text = "Sources"
 
-[node name="Album" type="Button" parent="Menu/Control/Buttons"]
-unique_name_in_owner = true
+[node name="Album" type="Button" parent="Menu/PauseMenu/Buttons"]
 layout_mode = 2
 text = "Album"
 
-[node name="Mishamol" type="Control" parent="Menu/Control"]
+[node name="Mishamol" type="Control" parent="Menu/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 56.0676
-offset_top = 372.397
-offset_right = 96.0676
-offset_bottom = 412.397
+offset_left = 44.9998
+offset_top = 276.0
+offset_right = 84.9998
+offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_55xp5")
 
-[node name="Mishamol" type="Sprite2D" parent="Menu/Control/Mishamol"]
-texture = ExtResource("2_sb3vv")
-
-[node name="LinkButton" type="LinkButton" parent="Menu/Control/Mishamol/Mishamol"]
-offset_left = -126.0
-offset_top = -26.0
-offset_right = 294.0
-offset_bottom = 39.0
+[node name="LinkButton" type="LinkButton" parent="Menu/PauseMenu/Mishamol"]
+layout_mode = 0
+offset_left = -89.0216
+offset_top = -20.3696
+offset_right = 330.978
+offset_bottom = 44.6304
 theme = ExtResource("1_55xp5")
 text = "            "
 underline = 1
 uri = "https://mishamol.ru/"
 
-[node name="MadeBy" type="Label" parent="Menu/Control/Mishamol"]
+[node name="Mishamol" type="Sprite2D" parent="Menu/PauseMenu/Mishamol"]
+scale = Vector2(0.58489, 0.58489)
+texture = ExtResource("2_sb3vv")
+
+[node name="MadeBy" type="Label" parent="Menu/PauseMenu/Mishamol"]
 layout_mode = 0
-offset_left = -273.0
-offset_top = -27.0
-offset_right = -107.0
-offset_bottom = 41.0
-theme_override_font_sizes/font_size = 36
+offset_left = -219.0
+offset_top = -29.0437
+offset_right = -52.9998
+offset_bottom = 38.9563
+theme_override_font_sizes/font_size = 27
 text = "made by"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Album" parent="Menu" instance=ExtResource("11_1vc1y")]
+visible = false
+layout_mode = 1
+
+[node name="Sources" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="Menu/Sources"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -315.0
+offset_right = 241.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("13_y2eji")
+speed = 9.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Sources/SmoothScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_55xp5")
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "Hall"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_g360k")
+text = "Лавка LoftDesigne 2511 model"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/lavka_loftdesigne_2511_model"
+
+[node name="LinkButton2" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+text = "Крючки"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/hooks_r"
+
+[node name="LinkButton3" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+text = "Intercom 3D Model"
+underline = 1
+uri = "https://archive3d.net/?a=download&id=4de22d82"
+
+[node name="Title2" type="Label" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "Wardrobe"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton4" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+text = "Пуф LoftDesigne 36360 model stool"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/taburet_loftdesigne_36360_model"
+
+[node name="Title3" type="Label" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "Guestroom"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton5" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+text = "Софа в гостевой комнате"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/sofa_modern_23"
+
+[node name="LinkButton6" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+text = "Тумбы Dante TV Stand"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/tv_tumba_dante"
+
+[node name="LinkButton7" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+text = "Modern rack hanger rail"
+underline = 1
+uri = "https://www.cgtrader.com/free-3d-models/furniture/other/modern-rack-hanger-rail"
+
+[node name="Buttons" type="HBoxContainer" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_55xp5")
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="Quit" type="Button" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "Quit"
+
+[node name="Sources" type="Button" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+mouse_filter = 1
+text = "Sources"
+
+[node name="Album" type="Button" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+mouse_filter = 1
+text = "Album"

@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://bunoelg7xy04m"]
+[gd_scene load_steps=14 format=3 uid="uid://bunoelg7xy04m"]
 
-[ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_cqyur"]
 [ext_resource type="Texture2D" uid="uid://dcta1u1vpjely" path="res://visual/ui/album/ru/1.png" id="1_eiq1m"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_uu01v"]
 [ext_resource type="Texture2D" uid="uid://bh1g0i5tbgvlf" path="res://visual/ui/album/ru/2.png" id="3_57ya1"]
@@ -29,8 +28,6 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ApplicationControls" parent="." instance=ExtResource("1_cqyur")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

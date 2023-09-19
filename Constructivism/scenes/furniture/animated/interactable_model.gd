@@ -18,8 +18,6 @@ func _ready():
 	if open_animation == "":
 		var animation_list = animation.get_animation_list()
 		open_animation = animation_list[0]
-		
-	print ("open_animation = ", open_animation)
 
 
 func switch_state():
@@ -51,6 +49,3 @@ func play_close_animation():
 	
 func _on_animation_finished(anim_name):
 	animating = false
-	
-	print ("animating = ", animating)
-	print ("opened = ", opened)
