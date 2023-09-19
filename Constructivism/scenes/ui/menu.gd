@@ -1,6 +1,16 @@
 extends CanvasLayer
 
 
+@export var language_button: OptionButton
+@export var ok_language_button: BaseButton
+
+
+signal on_language_choosen
+
+
+var animating: bool = false
+
+
 @onready var application_controls = $"../ApplicationControls"
 @onready var animation = $AnimationPlayer
 
@@ -9,12 +19,6 @@ extends CanvasLayer
 @onready var pause_menu = $Menu/PauseMenu
 @onready var album = $Menu/Album
 @onready var sources = $Menu/Sources
-
-
-@export var ok_language_button: BaseButton
-
-
-var animating: bool = false
 
 
 func  _ready():
@@ -40,13 +44,13 @@ func language_turn_on():
 	language.show()
 	welcome_menu.hide()
 	
-	application_controls.pause()
+	ApplicationControls.pause(self)
 
 
 func _on_ok_language_button_pressed():
-#!	var language_save_file = FileAccess.open("user://language_settings.data",FileAccess.WRITE)
-#!	language_save_file.store_string(locale)
+	LanguageSettings.set_language_by_id(language_button.selected) 
 	welcome_menu_turn_on()
+	on_language_choosen.emit()
 
 
 func welcome_menu_turn_on():
@@ -85,7 +89,7 @@ func turn_on():
 	animating = true
 	show()
 	animation.play("fade_in")
-	application_controls.pause()
+	ApplicationControls.pause(self)
 
 
 func turn_off():

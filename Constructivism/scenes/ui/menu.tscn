@@ -40,9 +40,10 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pj0ff"]
 
-[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("ok_language_button")]
+[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("language_button", "ok_language_button")]
 process_mode = 3
 script = ExtResource("2_05aoi")
+language_button = NodePath("Menu/Language/Buttons/LanguageButton")
 ok_language_button = NodePath("Menu/Language/Buttons/Ok")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

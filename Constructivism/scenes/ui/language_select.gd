@@ -1,36 +1,21 @@
 extends OptionButton
 
 
-var languages = [
-	"en",
-	"ru",
-]
+@onready var menu: CanvasLayer = get_tree().current_scene.get_node("Menu")
 
 
 func _ready() -> void:
+	print (get_tree().current_scene.get_node("Menu"))
+	menu.on_language_choosen.connect(_menu_on_language_choosen)
 	item_selected.connect(_on_item_selected)
 	
-	var language_save_file = FileAccess.open("user://language_settings.data",FileAccess.READ)
-	var current_locale: String = TranslationServer.get_locale()
-	if current_locale == "en_US":
-		# No localization selected 
-		# Read localization from file
-		if language_save_file == null:
-			# No localization saved
-			current_locale = "en"
-			TranslationServer.set_locale(current_locale)
-		else:
-			# Localization load successfully from file
-			current_locale = language_save_file.get_as_text()
-			TranslationServer.set_locale(current_locale)
-		
-	var current_locale_id = languages.find(current_locale)
-	select(current_locale_id)
+	select(LanguageSettings.get_current_locale_id())
 
 
 func _on_item_selected(index: int):
-	var locale: String = languages[index]
-	TranslationServer.set_locale(locale)
+	LanguageSettings.set_language_by_id(index)
 	
-	var language_save_file = FileAccess.open("user://language_settings.data",FileAccess.WRITE)
-	language_save_file.store_string(locale)
+	
+func _menu_on_language_choosen():
+	select(LanguageSettings.get_current_locale_id())
+	

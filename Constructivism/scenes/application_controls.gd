@@ -1,4 +1,5 @@
 extends Node
+class_name ApplicationControls
 
 
 @export var menu: CanvasLayer
@@ -29,8 +30,8 @@ func _input(event):
 		get_tree().reload_current_scene()
 		
 
-func pause():
-	get_tree().set_deferred("paused", true)
+static func pause(emitter):
+	emitter.get_tree().set_deferred("paused", true)
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	
 	

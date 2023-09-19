@@ -10,8 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Constructivism Interior Visualization"
+config/name="Constructivism"
+config/name_localized={
+"en": "Constructivism Interior Visualisation",
+"ru": "Визуализация интерьера в стиле Конструктивизм"
+}
 run/main_scene="res://scenes/scene.tscn"
+config/custom_user_dir_name="Constructivism22"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0.403922, 0.443137, 0.498039, 1)
 boot_splash/show_image=false
