@@ -1,7 +1,7 @@
 extends Sprite2D
 
 
-func _process(delta):
+func _process(_delta):
 	if DisplayServer.mouse_get_mode() == DisplayServer.MOUSE_MODE_CAPTURED:
 		return
 		

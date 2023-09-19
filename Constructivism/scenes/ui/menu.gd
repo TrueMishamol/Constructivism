@@ -19,13 +19,17 @@ var animating: bool = false
 
 func  _ready():
 	animation.animation_finished.connect(_on_animation_finished)
-	ok_language_button.pressed.connect(welcome_menu_turn_on)
+	ok_language_button.pressed.connect(_on_ok_language_button_pressed)
 	
-	language_turn_on()
+	var language_save_file = FileAccess.open("user://language_settings.data",FileAccess.READ)
+	if language_save_file == null:
+		language_turn_on()
+	else:
+		welcome_menu_turn_on()
 
 	pause_menu.hide()
 	album.hide()
-	sources.hide()	
+	sources.hide()
 	
 
 func _input(event):
@@ -37,6 +41,12 @@ func language_turn_on():
 	welcome_menu.hide()
 	
 	application_controls.pause()
+
+
+func _on_ok_language_button_pressed():
+#!	var language_save_file = FileAccess.open("user://language_settings.data",FileAccess.WRITE)
+#!	language_save_file.store_string(locale)
+	welcome_menu_turn_on()
 
 
 func welcome_menu_turn_on():
