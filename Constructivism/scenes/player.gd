@@ -10,6 +10,8 @@ const LOOK_SENSETIVITY = 0.005
 @export var camera:Camera3D
 @export var raycast:RayCast3D
 
+@onready var cross = $Cross
+
 
 func  _physics_process(delta):
 	_player_movement(delta)
@@ -33,15 +35,20 @@ func  _player_movement(delta):
 	
 
 func _input(event):
+	# Camera rotation
 	if event is InputEventMouseMotion:
 		rotate_y(- event.relative.x * LOOK_SENSETIVITY)
 		camera.rotate_x(- event.relative.y * LOOK_SENSETIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 		pass
 		
-	if Input.is_action_just_pressed("interact"):
-		var collider = raycast.get_collider()
-		if collider != null:
+	# Raycast
+	var collider = raycast.get_collider()
+	if collider == null:
+		cross.hide()
+	if collider != null:
+		cross.show()
+		if Input.is_action_just_pressed("interact"):
 			collider.interact()
 	
 
