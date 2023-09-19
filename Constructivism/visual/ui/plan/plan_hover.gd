@@ -9,3 +9,4 @@ func _process(_delta):
 		modulate = Color(1, 0, 0.231)
 	else:
 		modulate = Color(1, 1, 1)
+	

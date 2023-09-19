@@ -1,22 +1,21 @@
 extends CharacterBody3D
 
 
-@export var camera:Camera3D
-@export var raycast:RayCast3D
-
-
 const MAX_SPEED = 1.7
 const ACCELERATION = 7
 const FRICTION = 10
 
 const LOOK_SENSETIVITY = 0.005
 
+@export var camera:Camera3D
+@export var raycast:RayCast3D
+
 
 func  _physics_process(delta):
-	player_movement(delta)
+	_player_movement(delta)
 	
 
-func  player_movement(delta):
+func  _player_movement(delta):
 	var input_direction = Input.get_vector("left", "right", "forward", "back").normalized()
 	
 	if input_direction == Vector2.ZERO:
@@ -31,7 +30,7 @@ func  player_movement(delta):
 		velocity = velocity.limit_length(MAX_SPEED)
 		
 	move_and_slide()
-
+	
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -44,5 +43,5 @@ func _input(event):
 		var collider = raycast.get_collider()
 		if collider != null:
 			collider.interact()
-		
+	
 
