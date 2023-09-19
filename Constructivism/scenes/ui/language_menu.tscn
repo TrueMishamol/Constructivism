@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://rivfdsev38xe"]
+
+[ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_1gsbw"]
+[ext_resource type="Theme" uid="uid://d2p58ngrkwytp" path="res://visual/ui/theme/puffed_bun.tres" id="1_6jbhy"]
+[ext_resource type="Script" path="res://scenes/ui/language_menu.gd" id="3_uh7hs"]
+[ext_resource type="PackedScene" uid="uid://xs1wxfvl6eyh" path="res://scenes/ui/language_button.tscn" id="4_legxn"]
+
+[node name="LanguageMenu" type="CanvasLayer" node_paths=PackedStringArray("play_button")]
+script = ExtResource("3_uh7hs")
+play_button = NodePath("LanguageSelect/Buttons/Button")
+scene_path = "res://scenes/scene.tscn"
+
+[node name="ApplicationControls" parent="." instance=ExtResource("1_1gsbw")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.403922, 0.443137, 0.498039, 1)
+
+[node name="LanguageSelect" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_6jbhy")
+
+[node name="Label" type="Label" parent="LanguageSelect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -105.0
+offset_right = 39.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TITLE"
+
+[node name="Buttons" type="HBoxContainer" parent="LanguageSelect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 23.0
+offset_right = 132.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6jbhy")
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="LanguageButton" parent="LanguageSelect/Buttons" instance=ExtResource("4_legxn")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="LanguageSelect/Buttons"]
+layout_mode = 2
+text = "Ok"

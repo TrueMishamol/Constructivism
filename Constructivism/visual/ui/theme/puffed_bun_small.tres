@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://c4udbh26nv1al"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c4udbh26nv1al"]
+
+[ext_resource type="FontFile" uid="uid://cm0rddnrdu5nq" path="res://visual/ui/theme/MishamolPuffedBun-Regular.otf" id="1_lhuxd"]
 
 [resource]
+default_base_scale = 20.0
+default_font = ExtResource("1_lhuxd")
+default_font_size = 32

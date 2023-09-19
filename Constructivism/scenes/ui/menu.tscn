@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://coim8nk66yo7q"]
+[gd_scene load_steps=19 format=3 uid="uid://coim8nk66yo7q"]
 
 [ext_resource type="Theme" uid="uid://d2p58ngrkwytp" path="res://visual/ui/theme/puffed_bun.tres" id="1_55xp5"]
 [ext_resource type="Script" path="res://scenes/ui/menu.gd" id="2_05aoi"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bunoelg7xy04m" path="res://scenes/ui/album.tscn" id="11_1vc1y"]
 [ext_resource type="Theme" uid="uid://c4udbh26nv1al" path="res://visual/ui/theme/puffed_bun_small.tres" id="13_bya47"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="13_y2eji"]
-[ext_resource type="FontFile" uid="uid://cm0rddnrdu5nq" path="res://visual/ui/theme/MishamolPuffedBun-Regular.otf" id="14_6jeu8"]
+[ext_resource type="PackedScene" uid="uid://xs1wxfvl6eyh" path="res://scenes/ui/language_button.tscn" id="15_q63m1"]
 
 [sub_resource type="Animation" id="Animation_v1tg2"]
 length = 0.001
@@ -40,13 +40,10 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pj0ff"]
 
-[sub_resource type="Theme" id="Theme_g360k"]
-default_font = ExtResource("14_6jeu8")
-default_font_size = 32
-
-[node name="Menu" type="CanvasLayer"]
+[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("ok_language_button")]
 process_mode = 3
 script = ExtResource("2_05aoi")
+ok_language_button = NodePath("Menu/Language/Buttons/Ok")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -70,10 +67,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.627451)
+color = Color(0.282353, 0.313726, 0.356863, 0.627451)
+
+[node name="Language" type="Control" parent="Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Menu/Language"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.5
+offset_top = -186.0
+offset_right = 353.5
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+text = "TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Mishamol" type="Control" parent="Menu/Language"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.9998
+offset_top = 292.0
+offset_right = 84.9998
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+
+[node name="Mishamol" type="Sprite2D" parent="Menu/Language/Mishamol"]
+scale = Vector2(0.58489, 0.58489)
+texture = ExtResource("2_sb3vv")
+
+[node name="MadeBy" type="Label" parent="Menu/Language/Mishamol"]
+layout_mode = 0
+offset_left = -262.0
+offset_top = -29.0437
+offset_right = -95.9996
+offset_bottom = 38.9563
+theme_override_font_sizes/font_size = 27
+text = "MADE_BY"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Menu/Language"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -39.0
+offset_right = 132.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55xp5")
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="LanguageButton" parent="Menu/Language/Buttons" instance=ExtResource("15_q63m1")]
+layout_mode = 2
+
+[node name="Ok" type="Button" parent="Menu/Language/Buttons"]
+layout_mode = 2
+text = "Ok"
 
 [node name="WelcomeMenu" type="Control" parent="Menu"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,38 +179,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -353.5
-offset_top = -287.0
+offset_top = -186.0
 offset_right = 353.5
-offset_bottom = -237.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_55xp5")
-text = "Constructivism Interior Visualisation"
+text = "TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="Controls" type="Label" parent="Menu/WelcomeMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -83.0
-offset_top = -60.0002
-offset_right = 83.0
-offset_bottom = 60.0002
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "Walk: W A S D
-Interact: E
-
-Menu: ESC
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Mishamol" type="Control" parent="Menu/WelcomeMenu"]
 layout_mode = 1
@@ -136,9 +198,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 44.9998
-offset_top = 276.0
+offset_top = 292.0
 offset_right = 84.9998
-offset_bottom = 316.0
+offset_bottom = 332.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_55xp5")
@@ -149,12 +211,66 @@ texture = ExtResource("2_sb3vv")
 
 [node name="MadeBy" type="Label" parent="Menu/WelcomeMenu/Mishamol"]
 layout_mode = 0
-offset_left = -219.0
+offset_left = -262.0
 offset_top = -29.0437
-offset_right = -52.9998
+offset_right = -95.9996
 offset_bottom = 38.9563
 theme_override_font_sizes/font_size = 27
-text = "made by"
+text = "MADE_BY"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Controls" type="Label" parent="Menu/WelcomeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -73.0
+offset_right = 76.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS_WALK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls2" type="Label" parent="Menu/WelcomeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -34.0
+offset_right = 100.5
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS_INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls3" type="Label" parent="Menu/WelcomeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = 45.0
+offset_right = 72.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS_MENU"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -192,29 +308,36 @@ offset_bottom = -237.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_55xp5")
-text = "Constructivism Interior Visualisation"
+text = "TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Controls" type="Label" parent="Menu/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 174.0
-offset_top = 9.00003
-offset_right = 340.0
-offset_bottom = 129.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Controls" type="VBoxContainer" parent="Menu/PauseMenu"]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 365.0
+offset_right = 1018.0
+offset_bottom = 481.0
+
+[node name="Controls" type="Label" parent="Menu/PauseMenu/Controls"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Walk: W A S D
-Interact: E
-Reset: R
-"
+text = "CONTROLS_WALK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls2" type="Label" parent="Menu/PauseMenu/Controls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS_INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls3" type="Label" parent="Menu/PauseMenu/Controls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS_RESET"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -225,8 +348,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 4.00003
-offset_bottom = 4.00003
+offset_left = -6.10352e-05
+offset_top = 3.05176e-05
+offset_right = -6.10352e-05
+offset_bottom = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.53148, 0.53148)
@@ -259,10 +384,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -257.5
-offset_top = 183.0
-offset_right = 257.5
-offset_bottom = 221.0
+offset_left = -393.5
+offset_top = 175.0
+offset_right = 393.5
+offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_55xp5")
@@ -272,15 +397,19 @@ alignment = 1
 [node name="Quit" type="Button" parent="Menu/PauseMenu/Buttons"]
 layout_mode = 2
 theme = ExtResource("1_55xp5")
-text = "Quit"
+text = "QUIT"
 
 [node name="Sources" type="Button" parent="Menu/PauseMenu/Buttons"]
 layout_mode = 2
-text = "Sources"
+text = "SOURCES"
 
 [node name="Album" type="Button" parent="Menu/PauseMenu/Buttons"]
 layout_mode = 2
-text = "Album"
+text = "ALBUM"
+
+[node name="LanguageButton" parent="Menu/PauseMenu/Buttons" instance=ExtResource("15_q63m1")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 
 [node name="Mishamol" type="Control" parent="Menu/PauseMenu"]
 layout_mode = 1
@@ -314,13 +443,13 @@ texture = ExtResource("2_sb3vv")
 
 [node name="MadeBy" type="Label" parent="Menu/PauseMenu/Mishamol"]
 layout_mode = 0
-offset_left = -219.0
+offset_left = -265.0
 offset_top = -29.0437
-offset_right = -52.9998
+offset_right = -98.9996
 offset_bottom = 38.9563
 theme_override_font_sizes/font_size = 27
-text = "made by"
-horizontal_alignment = 1
+text = "MADE_BY"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Album" parent="Menu" instance=ExtResource("11_1vc1y")]
@@ -328,6 +457,7 @@ visible = false
 layout_mode = 1
 
 [node name="Sources" type="Control" parent="Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -349,10 +479,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -185.0
-offset_top = -315.0
-offset_right = 241.0
-offset_bottom = 315.0
+offset_left = -116.5
+offset_top = -305.0
+offset_right = 116.5
+offset_bottom = 305.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -360,114 +490,485 @@ vertical_scroll_mode = 2
 script = ExtResource("13_y2eji")
 speed = 9.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Sources/SmoothScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Sources/SmoothScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Sources/SmoothScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("1_55xp5")
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_55xp5")
-text = "Hall"
+text = "HALL"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="LinkButton" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme = SubResource("Theme_g360k")
-text = "Лавка LoftDesigne 2511 model"
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_HALL_1"
 underline = 1
 uri = "https://3dsky.org/3dmodels/show/lavka_loftdesigne_2511_model"
 
-[node name="LinkButton2" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton2" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("13_bya47")
-text = "Крючки"
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_HALL_2"
 underline = 1
 uri = "https://3dsky.org/3dmodels/show/hooks_r"
 
-[node name="LinkButton3" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton3" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("13_bya47")
-text = "Intercom 3D Model"
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_HALL_3"
 underline = 1
 uri = "https://archive3d.net/?a=download&id=4de22d82"
 
-[node name="Title2" type="Label" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="Title2" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_55xp5")
-text = "Wardrobe"
+text = "WARDROBE"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="LinkButton4" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton4" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("13_bya47")
-text = "Пуф LoftDesigne 36360 model stool"
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_WARDROBE_1"
 underline = 1
 uri = "https://3dsky.org/3dmodels/show/taburet_loftdesigne_36360_model"
 
-[node name="Title3" type="Label" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="Title3" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_55xp5")
-text = "Guestroom"
+text = "GUESTROOM"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="LinkButton5" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton5" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("13_bya47")
-text = "Софа в гостевой комнате"
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_GUESTROOM_1"
 underline = 1
 uri = "https://3dsky.org/3dmodels/show/sofa_modern_23"
 
-[node name="LinkButton6" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton6" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("13_bya47")
-text = "Тумбы Dante TV Stand"
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_GUESTROOM_2"
 underline = 1
 uri = "https://3dsky.org/3dmodels/show/tv_tumba_dante"
 
-[node name="LinkButton7" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="LinkButton7" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("13_bya47")
-text = "Modern rack hanger rail"
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_GUESTROOM_3"
 underline = 1
 uri = "https://www.cgtrader.com/free-3d-models/furniture/other/modern-rack-hanger-rail"
 
-[node name="Buttons" type="HBoxContainer" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer"]
+[node name="Title4" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "BEDROOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton8" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BEDROOM_1"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/tumba_modern_3"
+
+[node name="LinkButton9" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BEDROOM_2"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/ndesign_secret_bed_nightstands"
+
+[node name="LinkButton10" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BEDROOM_3"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/rabochii_stol_workspace"
+
+[node name="Title5" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "BATHROOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton11" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BATHROOM_1"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/vanna_galateya"
+
+[node name="LinkButton12" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BATHROOM_2"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/aqua_radiator_gracia"
+
+[node name="LinkButton13" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BATHROOM_3"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/toilet_30"
+
+[node name="LinkButton14" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BATHROOM_4"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/kollektsiia_mebeli_dlia_vannoi_proizvodstva_kaksa_a_praktik_belyi"
+
+[node name="LinkButton15" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_BATHROOM_5"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/stiralnaia_mashina_atlant_soft_action"
+
+[node name="Title6" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "LIVINGROOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton16" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_LIVINGROOM_1"
+underline = 1
+uri = "https://3ddd.ru/3dmodels/show/stol_transformier_9 "
+
+[node name="LinkButton17" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_LIVINGROOM_2"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/kreslo_kachalka_roppongi_zzc"
+
+[node name="LinkButton18" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_LIVINGROOM_3"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/om_aprilpromburo_hibina_chair"
+
+[node name="Title7" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "KITCHEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton19" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_KITCHEN_1"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/kukhnia_sonoma"
+
+[node name="LinkButton20" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_KITCHEN_2"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/stul_loftdesigne_3629_model"
+
+[node name="LinkButton21" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_KITCHEN_3"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/stol_stronghold_1"
+
+[node name="Title8" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "OFFICE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton22" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_OFFICE_1"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/stol_rabochii_indastrial_1_s_2_iashchikami_i_polkoi"
+
+[node name="LinkButton23" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_OFFICE_2"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/stellazh_teon_v_shpone_duba"
+
+[node name="LinkButton24" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_OFFICE_3"
+underline = 1
+uri = "https://furnitera.su/product/stellazh-teon-2/ "
+
+[node name="LinkButton25" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_OFFICE_4"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/shkaf_kupe_s_zerkalom_skandinaviya_mebel"
+
+[node name="LinkButton26" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_OFFICE_5"
+underline = 1
+uri = "https://www.cgtrader.com/free-3d-models/electronics/video/photography-studio-objects"
+
+[node name="LinkButton27" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_OFFICE_6"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/quebec_stul_dlia_kabineta"
+
+[node name="Title9" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "DRAWERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton28" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_DRAWER_1"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/prikrovatnaia_tumba_dante"
+
+[node name="LinkButton29" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_DRAWER_2"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/podvesnaia_tumba_borge"
+
+[node name="LinkButton30" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_DRAWER_3"
+underline = 1
+uri = "https://3dsky.org/3dmodels/show/podvesnaia_tumba_borge_1"
+
+[node name="Title10" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "DETAILS"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton31" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_DETAILS_1"
+underline = 1
+uri = "https://polyhaven.com/a/Camera_01"
+
+[node name="LinkButton32" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_DETAILS_2"
+underline = 1
+uri = "https://polyhaven.com/a/Megaphone_01"
+
+[node name="LinkButton33" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_DETAILS_3"
+underline = 1
+uri = "https://polyhaven.com/a/ceramic_vase_03"
+
+[node name="Title11" type="Label" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_55xp5")
+text = "MATERIALS"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton34" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_MATERIALS_1"
+underline = 1
+uri = "https://ambientcg.com/view?id=Paper001"
+
+[node name="LinkButton35" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_MATERIALS_2"
+underline = 1
+uri = "https://ambientcg.com/view?id=Carpet001"
+
+[node name="LinkButton36" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_MATERIALS_3"
+underline = 1
+uri = "https://ambientcg.com/view?id=Fabric061"
+
+[node name="LinkButton37" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_MATERIALS_4"
+underline = 1
+uri = "https://ambientcg.com/view?id=Fabric034"
+
+[node name="LinkButton38" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_MATERIALS_5"
+underline = 1
+uri = "https://ambientcg.com/view?id=Fabric001"
+
+[node name="LinkButton39" type="LinkButton" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("13_bya47")
+theme_override_font_sizes/font_size = 32
+text = "SOURCE_MATERIALS_6"
+underline = 1
+uri = "https://ambientcg.com/view?id=Fabric018"
+
+[node name="Buttons" type="HBoxContainer" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme = ExtResource("1_55xp5")
 theme_override_constants/separation = 90
 alignment = 1
 
-[node name="Quit" type="Button" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer/Buttons"]
+[node name="Quit" type="Button" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_55xp5")
 text = "Quit"
 
-[node name="Sources" type="Button" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer/Buttons"]
+[node name="Sources" type="Button" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 mouse_filter = 1
 text = "Sources"
 
-[node name="Album" type="Button" parent="Menu/Sources/SmoothScrollContainer/VBoxContainer/Buttons"]
+[node name="Album" type="Button" parent="Menu/Sources/SmoothScrollContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 mouse_filter = 1
 text = "Album"

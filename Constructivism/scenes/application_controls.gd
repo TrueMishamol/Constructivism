@@ -7,8 +7,7 @@ extends Node
 func _ready():
 	if menu == null:
 		menu = $"../Menu"
-	
-	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
+		return
 
 
 func _input(event):
@@ -25,6 +24,9 @@ func _input(event):
 	
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
+		
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 		
 
 func pause():

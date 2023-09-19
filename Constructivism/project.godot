@@ -92,8 +92,31 @@ quit={
 ]
 }
 
+[internationalization]
+
+locale/translation_remaps={
+"res://visual/ui/album/ru/1.png": PackedStringArray("res://visual/ui/album/en/1.png:en", "res://visual/ui/album/ru/1.png:ru"),
+"res://visual/ui/album/ru/10.png": PackedStringArray("res://visual/ui/album/en/10.png:en", "res://visual/ui/album/ru/10.png:ru"),
+"res://visual/ui/album/ru/11.png": PackedStringArray("res://visual/ui/album/en/11.png:en", "res://visual/ui/album/ru/11.png:ru"),
+"res://visual/ui/album/ru/12.png": PackedStringArray("res://visual/ui/album/en/12.png:en", "res://visual/ui/album/ru/12.png:ru"),
+"res://visual/ui/album/ru/2.png": PackedStringArray("res://visual/ui/album/en/2.png:en", "res://visual/ui/album/ru/2.png:ru"),
+"res://visual/ui/album/ru/3.png": PackedStringArray("res://visual/ui/album/en/3.png:en", "res://visual/ui/album/ru/3.png:ru"),
+"res://visual/ui/album/ru/4.png": PackedStringArray("res://visual/ui/album/en/4.png:en", "res://visual/ui/album/ru/4.png:ru"),
+"res://visual/ui/album/ru/5.png": PackedStringArray("res://visual/ui/album/en/5.png:en", "res://visual/ui/album/ru/5.png:ru"),
+"res://visual/ui/album/ru/6.png": PackedStringArray("res://visual/ui/album/en/6.png:en", "res://visual/ui/album/ru/6.png:ru"),
+"res://visual/ui/album/ru/7.png": PackedStringArray("res://visual/ui/album/en/7.png:en", "res://visual/ui/album/ru/7.png:ru"),
+"res://visual/ui/album/ru/8.png": PackedStringArray("res://visual/ui/album/en/8.png:en", "res://visual/ui/album/ru/8.png:ru"),
+"res://visual/ui/album/ru/9.png": PackedStringArray("res://visual/ui/album/en/9.png:en", "res://visual/ui/album/ru/9.png:ru")
+}
+locale/translations=PackedStringArray("res://visual/ui/localization/translation.en.translation", "res://visual/ui/localization/translation.ru.translation")
+locale/locale_filter_mode=1
+
 [layer_names]
 
 3d_physics/layer_1="Unset"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable Object"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.341176, 0.380392, 0.427451, 1)

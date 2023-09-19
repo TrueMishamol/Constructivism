@@ -1,0 +1,63 @@
+keys,en,ru
+TITLE,Constructivism Interior Visualisation,Интерьер в стиле Конструктивизма
+CONTROLS_WALK,Walk: W A S D,Ходить: W A S D
+CONTROLS_INTERACT,Interact: E,Действие: E
+CONTROLS_MENU,Menu: ESC,Меню: ESC
+CONTROLS_RESET,Reset: R,Перезапуск: R
+MADE_BY,made by,создал
+,,
+QUIT,Quit,Выйти
+SOURCES,Sources,Ресурсы
+ALBUM,Album,Альбом
+,,
+HALL,Hall,Прихожая
+WARDROBE,Wardrobe,Гардероб
+GUESTROOM,Guestroom,Гостевая
+BEDROOM,Bedroom,Спальня
+BATHROOM,Bathroom,Санузел
+LIVINGROOM,Living room,Гостиная
+KITCHEN,Kitchen,Кухня
+OFFICE,Office,Кабинет
+DRAWERS,Module storage system,Модульная система хранения
+DETAILS,Details,Детали
+MATERIALS,Materials,Материалы
+,,
+SOURCE_HALL_1,Bench LoftDesigne 2511 model,Лавка LoftDesigne 2511 model
+SOURCE_HALL_2,Hooks,Крючки
+SOURCE_HALL_3,Intercom 3D Model,Intercom 3D Model
+SOURCE_WARDROBE_1,Ottoman LoftDesigne 36360 model stool,Пуф LoftDesigne 36360 model stool
+SOURCE_GUESTROOM_1,Sofa modern,Софа в гостевой комнате
+SOURCE_GUESTROOM_2,TV Stand Dante TV Stand,Тумбы Dante TV Stand
+SOURCE_GUESTROOM_3,Modern rack hanger rail,Modern rack hanger rail
+SOURCE_BEDROOM_1,Cabinet Curbstone Modern,Тумба Curbstone Modern
+SOURCE_BEDROOM_2,Ndesign Secret Bed + Nightstands,Кровать Ndesign Secret Bed + Nightstands
+SOURCE_BEDROOM_3,Table,Стол
+SOURCE_BATHROOM_1,Bath Galateya,Ванна Galateya
+SOURCE_BATHROOM_2,Aqua Radiator Gracia,Полотенцесушитель Aqua Radiator Gracia
+SOURCE_BATHROOM_3,Toilet,Унитаз
+SOURCE_BATHROOM_4,Collection of bathroom furniture manufactured by Kaksa-A / Praktik White,Collection of bathroom furniture manufactured by Kaksa-A / Praktik White
+SOURCE_BATHROOM_5,Washing machine ATLANT Soft | Action,Стиралка Washing machine ATLANT Soft | Action
+SOURCE_LIVINGROOM_1,Table transformer Tatiana_Work Papa Leninskii Modeli Stol_kuhnya,Стол трансформер Tatiana_Work Papa Leninskii Modeli Stol_kuhnya
+SOURCE_LIVINGROOM_2,Rocking chair Roppongi ZZC,Кресло-качалка Rocking chair Roppongi ZZC
+SOURCE_LIVINGROOM_3,OM Aprilpromburo Hibina chair,OM Aprilpromburo Hibina chair
+SOURCE_KITCHEN_1,Sonoma kitchen,Кухня Sonoma kitchen
+SOURCE_KITCHEN_2,Chair Loftdesigne 3629 model,Стулья Chair Loftdesigne 3629 model
+SOURCE_KITCHEN_3,Table stronghold,Table stronghold
+SOURCE_OFFICE_1,"Table worker ""Industrial 1"" with 2 drawers and shelf","Рабочий Стол (модифицированный) Table worker ""Industrial 1"" with 2 drawers and shelf"
+SOURCE_OFFICE_2,Rack Shelving unit Teon in oak veneer,Стеллаж Shelving unit Teon in oak veneer
+SOURCE_OFFICE_3,Rack Shelving unit Teon in oak veneer,Стеллаж Shelving unit Teon in oak veneer
+SOURCE_OFFICE_4,Sliding wardrobe with a mirror Skandinaviya mebel,Шкаф (модифицированный) Sliding wardrobe with a mirror Skandinaviya mebel
+SOURCE_OFFICE_5,Photostands,Фотооборудование
+SOURCE_OFFICE_6,"Quebec, office chair","Quebec, office chair"
+SOURCE_DRAWER_1,Dante bedside table,Тумбы Dante bedside table
+SOURCE_DRAWER_2,Hanging cabinet Borge,Тумбы Hanging cabinet Borge
+SOURCE_DRAWER_3,Hanging cabinet Borge,Тумбы Hanging cabinet Borge
+SOURCE_DETAILS_1,Camera,Фотокамера
+SOURCE_DETAILS_2,Megaphone,Мегафон
+SOURCE_DETAILS_3,Vase,Ваза
+SOURCE_MATERIALS_1,Wallpapers,Wallpaper - cтены
+SOURCE_MATERIALS_2,Carpet,Ковёр
+SOURCE_MATERIALS_3,Sofa,Диван
+SOURCE_MATERIALS_4,Bed,Кровать
+SOURCE_MATERIALS_5,Pillows,Подушки
+SOURCE_MATERIALS_6,Blanket,Плед

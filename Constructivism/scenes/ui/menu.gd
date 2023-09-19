@@ -4,10 +4,14 @@ extends CanvasLayer
 @onready var application_controls = $"../ApplicationControls"
 @onready var animation = $AnimationPlayer
 
+@onready var language = $Menu/Language
 @onready var welcome_menu = $Menu/WelcomeMenu
 @onready var pause_menu = $Menu/PauseMenu
 @onready var album = $Menu/Album
 @onready var sources = $Menu/Sources
+
+
+@export var ok_language_button: BaseButton
 
 
 var animating: bool = false
@@ -15,15 +19,31 @@ var animating: bool = false
 
 func  _ready():
 	animation.animation_finished.connect(_on_animation_finished)
+	ok_language_button.pressed.connect(welcome_menu_turn_on)
 	
-	welcome_menu.show()
+	language_turn_on()
+
 	pause_menu.hide()
 	album.hide()
-	sources.hide()
+	sources.hide()	
 	
 
 func _input(event):
 	toggle(event)
+	
+
+func language_turn_on():
+	language.show()
+	welcome_menu.hide()
+	
+	application_controls.pause()
+
+
+func welcome_menu_turn_on():
+	language.hide()
+	welcome_menu.show()
+	
+	application_controls.unpause()
 	
 
 func toggle(event):
@@ -40,6 +60,8 @@ func toggle(event):
 		if visible:
 			if pause_menu.visible:
 				turn_off()
+			elif language.visible:
+				welcome_menu_turn_on()
 			else:
 				pause_menu.show()
 				album.hide()

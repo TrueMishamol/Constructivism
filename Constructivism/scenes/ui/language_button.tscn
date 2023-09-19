@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://xs1wxfvl6eyh"]
+
+[ext_resource type="Theme" uid="uid://c4udbh26nv1al" path="res://visual/ui/theme/puffed_bun_small.tres" id="1_yghq2"]
+[ext_resource type="Script" path="res://scenes/ui/language_select.gd" id="2_xgs51"]
+
+[node name="LanguageButton" type="OptionButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.5
+offset_right = 60.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_yghq2")
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Русский"
+popup/item_1/id = 1
+script = ExtResource("2_xgs51")
