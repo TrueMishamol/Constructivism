@@ -121,6 +121,8 @@ locale/locale_filter_mode=1
 3d_physics/layer_1="Unset"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Interactable Object"
+3d_physics/layer_4="Movable Object"
+3d_physics/layer_5="In Motion"
 
 [rendering]
 
