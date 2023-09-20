@@ -7,66 +7,47 @@ const FRICTION = 10
 
 const LOOK_SENSETIVITY = 0.005
 const HELD_OBJECT_SPEED = 10
+const HELD_ROTATION_POWER = 1
 
 const LAYER_INTERACTABLE = 4
 const LAYER_MOVABLE = 8
 const LAYER_IN_MOTION = 16
 
-@export var _camera:Camera3D
-@export var _raycast:RayCast3D
-@export var _hold_position:Node3D
+@export var _camera: Camera3D
+@export var _raycast: RayCast3D
+@export var _hold_position: Node3D
+@export var _hold_joint: Generic6DOFJoint3D
+@export var _hold_static_body: StaticBody3D
 
 var _held_object: RigidBody3D
-var _start_hold_rotation
-var _start_held_object_rotation 
+var _view_locked = false
 
 @onready var _crosshair = $Cross
 
 
 func  _physics_process(delta):
 	_player_movement(delta)
-	_player_picking_up_objects(delta)
-	
+	_player_holding_object(delta)
+
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !_view_locked:
 		_camera_rotation(event)
 		
 	_raycasting()
+	
+	if Input.is_action_pressed("rotate"):
+		_view_locked = true
+		_rotate_held_object(event)
+	if Input.is_action_just_released("rotate"):
+		_view_locked = false
+
 
 func _camera_rotation(event):
 	rotate_y(-event.relative.x * LOOK_SENSETIVITY)
 	_camera.rotate_x(-event.relative.y * LOOK_SENSETIVITY)
 	_camera.rotation.x = clamp(_camera.rotation.x, -PI/2, PI/2)
-	
 
-func _raycasting():
-	var collider = _raycast.get_collider()
-	
-	if collider == null:
-		_crosshair.hide()
-	else:
-		_crosshair.show()
-	
-	if Input.is_action_just_pressed("interact"):
-		if _held_object:
-			_held_object.freeze = false
-			_held_object.collision_layer = LAYER_MOVABLE
-			_held_object = null
-			return
-	
-	if collider and Input.is_action_just_pressed("interact"):
-		var collision_layer = collider.get_collision_layer()
-		match collision_layer:
-			LAYER_INTERACTABLE:
-				collider.interact()
-			LAYER_MOVABLE:
-				_held_object = collider
-				print(_held_object)
-				_held_object.collision_layer = LAYER_IN_MOTION
-				
-				_start_hold_rotation = _hold_position.global_rotation
-				_start_held_object_rotation = _held_object.global_rotation
 
 func _player_movement(delta):
 	var input_direction = Input.get_vector("left", "right", "forward", "back").normalized()
@@ -83,18 +64,60 @@ func _player_movement(delta):
 		velocity = velocity.limit_length(MAX_SPEED)
 		
 	move_and_slide()
-	
 
-func _player_picking_up_objects(delta):
+
+func _raycasting():
+	var collider = _raycast.get_collider()
+	
+	if collider == null:
+		_crosshair.hide()
+	else:
+		_crosshair.show()
+	
+	if Input.is_action_just_pressed("interact"):
+		# Drop held object:
+		if _held_object:
+			_drop_held_object()
+			return
+			
+		# Interact with object:
+		if collider:
+			var collision_layer = collider.get_collision_layer()
+			match collision_layer:
+				LAYER_INTERACTABLE:
+					collider.interact()
+				LAYER_MOVABLE:
+					_pick_up_object(collider)
+
+
+func _pick_up_object(collider):
+	_held_object = collider
+	_held_object.collision_layer = LAYER_IN_MOTION
+	
+	_hold_joint.node_b = _held_object.get_path()
+
+
+func _drop_held_object():
+	_held_object.collision_layer = LAYER_MOVABLE
+	_hold_joint.node_b = ""
+	_held_object = null
+
+
+func _rotate_held_object(event):
+	if _held_object:
+		if event is InputEventMouseMotion:
+			_hold_static_body.rotate_x(deg_to_rad(event.relative.y * HELD_ROTATION_POWER))
+			_hold_static_body.rotate_y(deg_to_rad(event.relative.x * HELD_ROTATION_POWER))
+
+
+func _player_holding_object(delta):
 	if _held_object == null:
 		return
 	
 	var object_position = _held_object.global_transform.origin
 	var target_position = _hold_position.global_transform.origin
-	
 	var direction = (target_position - object_position)
 	
 	_held_object.linear_velocity = direction * HELD_OBJECT_SPEED
-	
-	# Rotates Held object with Player by Y axis:
-	_held_object.global_rotation = _start_held_object_rotation + Vector3(0, _hold_position.global_rotation.y, 0) - Vector3(0, _start_hold_rotation.y, 0)
+
+
