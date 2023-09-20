@@ -7,7 +7,7 @@
 radius = 0.2
 height = 1.8
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_camera", "_raycast", "_hold_position", "_hold_joint", "_hold_static_body")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "raycast", "hold_position", "hold_joint", "hold_static_body")]
 collision_layer = 2
 collision_mask = 13
 axis_lock_linear_y = true
@@ -15,11 +15,11 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 motion_mode = 1
 script = ExtResource("1_qbmw8")
-_camera = NodePath("Camera3D")
-_raycast = NodePath("Camera3D/InteractableRayCast")
-_hold_position = NodePath("Camera3D/HoldPosition")
-_hold_joint = NodePath("Camera3D/HoldJoint")
-_hold_static_body = NodePath("HoldStaticBody")
+camera = NodePath("Camera3D")
+raycast = NodePath("Camera3D/InteractableRayCast")
+hold_position = NodePath("Camera3D/HoldPosition")
+hold_joint = NodePath("Camera3D/HoldJoint")
+hold_static_body = NodePath("HoldStaticBody")
 
 [node name="Cross" type="Control" parent="."]
 layout_mode = 3

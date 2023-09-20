@@ -5,8 +5,8 @@ extends Control
 @export var sources_button: BaseButton
 @export var album_button: BaseButton
 
-@onready var album = $"../Album"
-@onready var sources = $"../Sources"
+@onready var _album = $"../Album"
+@onready var _sources = $"../Sources"
 
 
 func  _ready():
@@ -16,11 +16,11 @@ func  _ready():
 	
 
 func _open_sources():
-	sources.show()
+	_sources.show()
 	hide()
 	
 
 func _open_album():
-	album.show()
+	_album.show()
 	hide()
 	

@@ -6,20 +6,20 @@ signal on_language_choosen
 @export var language_button: OptionButton
 @export var ok_language_button: BaseButton
 
-var animating: bool = false
+var _animating: bool = false
 
-@onready var application_controls = $"../ApplicationControls"
-@onready var animation = $AnimationPlayer
+@onready var _application_controls = $"../ApplicationControls"
+@onready var _animation = $AnimationPlayer
 
-@onready var language = $Menu/Language
-@onready var welcome_menu = $Menu/WelcomeMenu
-@onready var pause_menu = $Menu/PauseMenu
-@onready var album = $Menu/Album
-@onready var sources = $Menu/Sources
+@onready var _language = $Menu/Language
+@onready var _welcome_menu = $Menu/WelcomeMenu
+@onready var _pause_menu = $Menu/PauseMenu
+@onready var _album = $Menu/Album
+@onready var _sources = $Menu/Sources
 
 
 func _ready():
-	animation.animation_finished.connect(_on_animation_finished)
+	_animation.animation_finished.connect(_on_animation_finished)
 	ok_language_button.pressed.connect(_on_ok_language_button_pressed)
 	
 	_hide_all_menus()
@@ -41,32 +41,32 @@ func _on_ok_language_button_pressed():
 	
 
 func _hide_all_menus():
-	language.hide()
-	welcome_menu.hide()
-	pause_menu.hide()
-	album.hide()
-	sources.hide()
+	_language.hide()
+	_welcome_menu.hide()
+	_pause_menu.hide()
+	_album.hide()
+	_sources.hide()
 	
 
 func _welcome_menu_turn_on():
 	_hide_all_menus()
-	welcome_menu.show()
+	_welcome_menu.show()
 	
-	application_controls.unpause()
+	_application_controls.unpause()
 	
 
 func _language_turn_on():
 	_hide_all_menus()
-	language.show()
+	_language.show()
 	
-	application_controls.pause()
+	_application_controls.pause()
 	
 
 func _toggle(event):
-	if animating:
+	if _animating:
 		return
 		
-	if welcome_menu.visible and event is InputEventKey and event.pressed:
+	if _welcome_menu.visible and event is InputEventKey and event.pressed:
 		# Any button pressed:
 		_turn_off()
 		return
@@ -78,31 +78,31 @@ func _toggle(event):
 			return
 			
 		if visible:
-			if pause_menu.visible or language.visible:
+			if _pause_menu.visible or _language.visible:
 				_turn_off()
 			else:
 				_hide_all_menus()
-				pause_menu.show()
+				_pause_menu.show()
 	
 
 func _turn_on():
-	animating = true
+	_animating = true
 	show()
-	animation.play("fade_in")
-	application_controls.pause()
+	_animation.play("fade_in")
+	_application_controls.pause()
 	
 
 func _turn_off():
-	animating = true
-	application_controls.unpause()
-	animation.play("fade_out")
+	_animating = true
+	_application_controls.unpause()
+	_animation.play("fade_out")
 	
 
 func _on_animation_finished(anim_name):
-	animating = false
+	_animating = false
 	
 	if anim_name == "fade_out":
 		hide()
 		_hide_all_menus()
-		pause_menu.show()
+		_pause_menu.show()
 	

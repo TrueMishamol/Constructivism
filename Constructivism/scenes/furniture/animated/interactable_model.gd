@@ -4,46 +4,46 @@ extends Node3D
 @export var open_animation: String
 @export var close_animation: String
 
-var animating: bool = false
-var opened: bool = false
+var _animating: bool = false
+var _opened: bool = false
 
-@onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var _animation: AnimationPlayer = $AnimationPlayer
 
 
 func _ready():
-	animation.animation_finished.connect(_on_animation_finished)
+	_animation.animation_finished.connect(_on_animation_finished)
 	
 	if open_animation == "":
-		var animation_list = animation.get_animation_list()
+		var animation_list = _animation.get_animation_list()
 		open_animation = animation_list[0]
 	
 
 func switch_state():
-	if animating:
+	if _animating:
 		return
 	
-	animating = true
+	_animating = true
 	
-	if opened:
+	if _opened:
 		_play_close_animation()
 	else:
 		_play_open_animation()
 	
 
 func _play_open_animation():
-	opened = true
-	animation.play(open_animation)
+	_opened = true
+	_animation.play(open_animation)
 	
 
 func _play_close_animation():
-	opened = false
+	_opened = false
 	
 	if close_animation != "":
-		animation.play(close_animation)
+		_animation.play(close_animation)
 	else:
-		animation.play_backwards(open_animation)
+		_animation.play_backwards(open_animation)
 	
 
-func _on_animation_finished(anim_name):
-	animating = false
+func _on_animation_finished(_anim_name):
+	_animating = false
 	

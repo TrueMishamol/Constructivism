@@ -13,11 +13,11 @@ const LAYER_INTERACTABLE = 4
 const LAYER_MOVABLE = 8
 const LAYER_IN_MOTION = 16
 
-@export var _camera: Camera3D
-@export var _raycast: RayCast3D
-@export var _hold_position: Node3D
-@export var _hold_joint: Generic6DOFJoint3D
-@export var _hold_static_body: StaticBody3D
+@export var camera: Camera3D
+@export var raycast: RayCast3D
+@export var hold_position: Node3D
+@export var hold_joint: Generic6DOFJoint3D
+@export var hold_static_body: StaticBody3D
 
 var _held_object: RigidBody3D
 var _view_locked = false
@@ -27,7 +27,7 @@ var _view_locked = false
 
 func  _physics_process(delta):
 	_player_movement(delta)
-	_player_holding_object(delta)
+	_player_holding_object()
 
 
 func _input(event):
@@ -45,8 +45,8 @@ func _input(event):
 
 func _camera_rotation(event):
 	rotate_y(-event.relative.x * LOOK_SENSETIVITY)
-	_camera.rotate_x(-event.relative.y * LOOK_SENSETIVITY)
-	_camera.rotation.x = clamp(_camera.rotation.x, -PI/2, PI/2)
+	camera.rotate_x(-event.relative.y * LOOK_SENSETIVITY)
+	camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 
 func _player_movement(delta):
@@ -67,7 +67,7 @@ func _player_movement(delta):
 
 
 func _raycasting():
-	var collider = _raycast.get_collider()
+	var collider = raycast.get_collider()
 	
 	if collider == null:
 		_crosshair.hide()
@@ -82,8 +82,8 @@ func _raycasting():
 			
 		# Interact with object:
 		if collider:
-			var collision_layer = collider.get_collision_layer()
-			match collision_layer:
+			var held_collision_layer = collider.get_collision_layer()
+			match held_collision_layer:
 				LAYER_INTERACTABLE:
 					collider.interact()
 				LAYER_MOVABLE:
@@ -94,28 +94,28 @@ func _pick_up_object(collider):
 	_held_object = collider
 	_held_object.collision_layer = LAYER_IN_MOTION
 	
-	_hold_joint.node_b = _held_object.get_path()
+	hold_joint.node_b = _held_object.get_path()
 
 
 func _drop_held_object():
 	_held_object.collision_layer = LAYER_MOVABLE
-	_hold_joint.node_b = ""
+	hold_joint.node_b = ""
 	_held_object = null
 
 
 func _rotate_held_object(event):
 	if _held_object:
 		if event is InputEventMouseMotion:
-			_hold_static_body.rotate_x(deg_to_rad(event.relative.y * HELD_ROTATION_POWER))
-			_hold_static_body.rotate_y(deg_to_rad(event.relative.x * HELD_ROTATION_POWER))
+			hold_static_body.rotate_x(deg_to_rad(event.relative.y * HELD_ROTATION_POWER))
+			hold_static_body.rotate_y(deg_to_rad(event.relative.x * HELD_ROTATION_POWER))
 
 
-func _player_holding_object(delta):
+func _player_holding_object():
 	if _held_object == null:
 		return
 	
 	var object_position = _held_object.global_transform.origin
-	var target_position = _hold_position.global_transform.origin
+	var target_position = hold_position.global_transform.origin
 	var direction = (target_position - object_position)
 	
 	_held_object.linear_velocity = direction * HELD_OBJECT_SPEED
