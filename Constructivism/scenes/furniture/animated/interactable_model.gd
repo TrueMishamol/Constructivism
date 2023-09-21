@@ -16,7 +16,7 @@ func _ready():
 	if open_animation == "":
 		var animation_list = _animation.get_animation_list()
 		open_animation = animation_list[0]
-	
+
 
 func switch_state():
 	if _animating:
@@ -28,12 +28,12 @@ func switch_state():
 		_play_close_animation()
 	else:
 		_play_open_animation()
-	
+
 
 func _play_open_animation():
 	_opened = true
 	_animation.play(open_animation)
-	
+
 
 func _play_close_animation():
 	_opened = false
@@ -42,8 +42,7 @@ func _play_close_animation():
 		_animation.play(close_animation)
 	else:
 		_animation.play_backwards(open_animation)
-	
+
 
 func _on_animation_finished(_anim_name):
 	_animating = false
-	

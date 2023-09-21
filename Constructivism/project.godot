@@ -22,6 +22,11 @@ boot_splash/bg_color=Color(0.403922, 0.443137, 0.498039, 1)
 boot_splash/show_image=false
 config/icon="res://visual/ui/constructivism.png"
 
+[autoload]
+
+ApplicationControls="*res://scripts/application_controls.gd"
+Singleton="*res://scripts/singleton.gd"
+
 [display]
 
 window/size/viewport_width=1280

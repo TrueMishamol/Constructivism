@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name Menu
 
 
 signal on_language_choosen
@@ -8,14 +9,18 @@ signal on_language_choosen
 
 var _animating: bool = false
 
-@onready var _application_controls = $"../ApplicationControls"
 @onready var _animation = $AnimationPlayer
 
+# Menu pages:
 @onready var _language = $Menu/Language
 @onready var _welcome_menu = $Menu/WelcomeMenu
 @onready var _pause_menu = $Menu/PauseMenu
 @onready var _album = $Menu/Album
 @onready var _sources = $Menu/Sources
+
+
+func _enter_tree():
+	Singleton.menu = self
 
 
 func _ready():
@@ -28,7 +33,7 @@ func _ready():
 		_language_turn_on()
 	else:
 		_welcome_menu_turn_on()
-	
+
 
 func _input(event):
 	_toggle(event)
@@ -38,7 +43,7 @@ func _on_ok_language_button_pressed():
 	LanguageSettings.set_language_by_id(language_button.selected) 
 	_welcome_menu_turn_on()
 	on_language_choosen.emit()
-	
+
 
 func _hide_all_menus():
 	_language.hide()
@@ -46,21 +51,21 @@ func _hide_all_menus():
 	_pause_menu.hide()
 	_album.hide()
 	_sources.hide()
-	
+
 
 func _welcome_menu_turn_on():
 	_hide_all_menus()
 	_welcome_menu.show()
 	
-	_application_controls.unpause()
-	
+	ApplicationControls.unpause()
+
 
 func _language_turn_on():
 	_hide_all_menus()
 	_language.show()
 	
-	_application_controls.pause()
-	
+	ApplicationControls.pause()
+
 
 func _toggle(event):
 	if _animating:
@@ -83,20 +88,20 @@ func _toggle(event):
 			else:
 				_hide_all_menus()
 				_pause_menu.show()
-	
+
 
 func _turn_on():
 	_animating = true
 	show()
 	_animation.play("fade_in")
-	_application_controls.pause()
-	
+	ApplicationControls.pause()
+
 
 func _turn_off():
 	_animating = true
-	_application_controls.unpause()
+	ApplicationControls.unpause()
 	_animation.play("fade_out")
-	
+
 
 func _on_animation_finished(anim_name):
 	_animating = false
@@ -105,4 +110,3 @@ func _on_animation_finished(anim_name):
 		hide()
 		_hide_all_menus()
 		_pause_menu.show()
-	

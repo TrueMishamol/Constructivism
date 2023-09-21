@@ -9,12 +9,11 @@ func _ready() -> void:
 	item_selected.connect(_on_item_selected)
 	
 	select(LanguageSettings.get_current_locale_id())
-	
+
 
 func _on_item_selected(index: int):
 	LanguageSettings.set_language_by_id(index)
-	
+
 
 func _menu_on_language_choosen():
 	select(LanguageSettings.get_current_locale_id())
-	

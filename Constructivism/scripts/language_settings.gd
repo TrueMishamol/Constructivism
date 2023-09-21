@@ -27,7 +27,7 @@ static func get_current_locale_id() -> int:
 	var current_locale_id = languages.find(current_locale)
 	
 	return current_locale_id
-	
+
 
 static func set_language_by_id(language_id: int):
 	var language_save_file  = FileAccess.open("user://language_settings.data",FileAccess.WRITE)
@@ -36,7 +36,7 @@ static func set_language_by_id(language_id: int):
 	TranslationServer.set_locale(locale)
 	
 	language_save_file.store_string(locale)
-	
+
 
 static func is_locale_saved() -> bool:
 	var language_save_file = FileAccess.open("user://language_settings.data",FileAccess.READ)

@@ -25,6 +25,10 @@ var _view_locked = false
 @onready var _crosshair = $Cross
 
 
+func _enter_tree():
+	Singleton.player_camera = camera
+
+
 func  _physics_process(delta):
 	_player_movement(delta)
 	_player_holding_object()
@@ -119,5 +123,3 @@ func _player_holding_object():
 	var direction = (target_position - object_position)
 	
 	_held_object.linear_velocity = direction * HELD_OBJECT_SPEED
-
-

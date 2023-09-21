@@ -6,4 +6,3 @@ extends PhysicsBody3D
 
 func interact():
 	interactable_3d_model.switch_state()
-	
