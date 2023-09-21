@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dfrqnep114oaa"]
+[gd_scene load_steps=48 format=3 uid="uid://dfrqnep114oaa"]
 
 [ext_resource type="PackedScene" uid="uid://c1fal1ys6wfqa" path="res://scenes/application_controls.tscn" id="1_k0y54"]
 [ext_resource type="PackedScene" uid="uid://bo3ib6nl16ywt" path="res://scenes/player.tscn" id="2_4lyls"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://c2p05j5i0cg80" path="res://scenes/furniture/animated/bathroom_glass_door.tscn" id="24_gt5q2"]
 [ext_resource type="PackedScene" uid="uid://gfvf3gudprgp" path="res://scenes/furniture/animated/bedroom_curtain_right.tscn" id="24_tk6si"]
 [ext_resource type="PackedScene" uid="uid://borcmnnse8nqc" path="res://scenes/furniture/animated/bathroom_column_closet.tscn" id="25_pv1fp"]
+[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="37_d62eo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb71t"]
 resource_name = "Wallpaper"
@@ -490,6 +491,13 @@ shape = SubResource("BoxShape3D_xejqk")
 [node name="Temporary" type="Node3D" parent="House"]
 
 [node name="movable" parent="House/Temporary" instance=ExtResource("23_u1r8u")]
+
+[node name="Mirror" type="Node3D" parent="House/Temporary"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.23669, 1.5, -4.22843)
+script = ExtResource("37_d62eo")
+size = Vector2(0.6, 3)
+ResolutionPerUnit = 400
+MirrorColor = Color(1, 1, 1, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_qakcn")
