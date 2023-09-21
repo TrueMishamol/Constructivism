@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2p05j5i0cg80"]
+[gd_scene load_steps=17 format=3 uid="uid://c2p05j5i0cg80"]
 
 [ext_resource type="PackedScene" uid="uid://dcorbw52gicki" path="res://visual/3d/bathroom_glass_door_base.gltf" id="1_xqwh6"]
 [ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="2_qtm1q"]
+[ext_resource type="Material" uid="uid://c4taa1p13pqls" path="res://visual/materials/glass_matte.tres" id="3_ipnfs"]
 [ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="3_syrt4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eygh"]
@@ -129,6 +130,7 @@ script = ExtResource("2_qtm1q")
 transform = Transform3D(1.35524, 0, -0.341888, 0, 1.3977, 0, 0.341888, 0, 1.35524, 8.81908, 0.613173, -11.9275)
 mesh = SubResource("ArrayMesh_ayw6s")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ipnfs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LeftDoor/MovableDoor" node_paths=PackedStringArray("interactable_3d_model")]
 collision_layer = 4
@@ -151,6 +153,7 @@ script = ExtResource("2_qtm1q")
 transform = Transform3D(1.30579, 0, 0.498478, 0, 1.3977, 0, -0.498478, 0, 1.30579, 8.81908, 0.613173, -11.9275)
 mesh = SubResource("ArrayMesh_jjqkx")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ipnfs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RightDoor/MoovableDoor2" node_paths=PackedStringArray("interactable_3d_model")]
 collision_layer = 4

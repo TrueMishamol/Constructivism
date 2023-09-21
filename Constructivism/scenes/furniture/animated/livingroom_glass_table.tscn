@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://87h15j00jij0"]
+[gd_scene load_steps=18 format=3 uid="uid://87h15j00jij0"]
 
 [ext_resource type="PackedScene" uid="uid://ckaw2nefbicgi" path="res://visual/3d/livingroom_glass_table_base.gltf" id="1_ocy6k"]
 [ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="2_dib2f"]
+[ext_resource type="Material" uid="uid://dv173oeja1pbv" path="res://visual/materials/glass_table.tres" id="3_5cgn7"]
 [ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="3_okyfq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_al61q"]
@@ -186,6 +187,7 @@ script = ExtResource("2_dib2f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77112, 0.009668, -8.09506)
 mesh = SubResource("ArrayMesh_5mnhv")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_5cgn7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CircleRight/LivingroomGlassTableCircleRight" node_paths=PackedStringArray("interactable_3d_model")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.77112, -0.009668, 8.09506)
@@ -210,6 +212,7 @@ script = ExtResource("2_dib2f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77112, 0.009668, -8.09506)
 mesh = SubResource("ArrayMesh_nuooh")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_5cgn7")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="CircleLeft/LivingroomGlassTableCircleLeft" node_paths=PackedStringArray("interactable_3d_model")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.77112, -0.009668, 8.09506)
