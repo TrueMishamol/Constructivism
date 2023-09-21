@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cumns3bayb0ue"]
+[gd_scene load_steps=20 format=3 uid="uid://cumns3bayb0ue"]
 
 [ext_resource type="PackedScene" uid="uid://dd861184u4fdg" path="res://visual/3d/bedroom_wardrobe.gltf" id="1_g8ttn"]
 [ext_resource type="Script" path="res://scenes/furniture/animated/interactable_model.gd" id="2_kpy1v"]
 [ext_resource type="Script" path="res://scenes/furniture/animated/interactable_body.gd" id="3_x8wbp"]
 [ext_resource type="PackedScene" uid="uid://bnsro46044568" path="res://visual/3d/bedroom_wardrobe_door_right.gltf" id="4_i33bs"]
 [ext_resource type="PackedScene" uid="uid://cqqg7od6khy4i" path="res://scenes/furniture/animated/bedroom_wardrobe_drawer.tscn" id="5_0ltkr"]
+[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="6_hu1rm"]
 
 [sub_resource type="Animation" id="Animation_dj53b"]
 resource_name = "DoorLeftAction"
@@ -216,6 +217,24 @@ interactable_3d_model = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorMirror/DoorMirror/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6138, 1.25, -10.8038)
 shape = SubResource("BoxShape3D_3ppt2")
+
+[node name="Mirror" type="Node3D" parent="DoorMirror/DoorMirror/StaticBody3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6097, 1.5, -10.7107)
+script = ExtResource("6_hu1rm")
+size = Vector2(0.6, 3)
+ResolutionPerUnit = 400
+MainCamPath = NodePath("../TempEditorCameraForMirrorsSetup")
+MirrorColor = Color(1, 1, 1, 1)
+MirrorDistortion = null
+
+[node name="Mirror2" type="Node3D" parent="DoorMirror/DoorMirror/StaticBody3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6097, 1.5, -10.8945)
+script = ExtResource("6_hu1rm")
+size = Vector2(0.6, 3)
+ResolutionPerUnit = 400
+MainCamPath = NodePath("../TempEditorCameraForMirrorsSetup")
+MirrorColor = Color(1, 1, 1, 1)
+MirrorDistortion = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DoorMirror"]
 libraries = {

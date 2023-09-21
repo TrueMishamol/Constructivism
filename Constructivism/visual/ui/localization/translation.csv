@@ -4,6 +4,7 @@ CONTROLS_WALK,Walk: W A S D,Ходить: W A S D
 CONTROLS_INTERACT,Interact: E,Действие: E
 CONTROLS_MENU,Menu: ESC,Меню: ESC
 CONTROLS_RESET,Reset: R,Перезапуск: R
+CONTROLS_ROTATE,Rotate: F,Вращать: F
 MADE_BY,made by,создал
 ,,
 QUIT,Quit,Выйти
@@ -45,7 +46,7 @@ SOURCE_KITCHEN_2,Chair Loftdesigne 3629 model,Стулья Chair Loftdesigne 362
 SOURCE_KITCHEN_3,Table stronghold,Table stronghold
 SOURCE_OFFICE_1,"Table worker ""Industrial 1"" with 2 drawers and shelf","Рабочий Стол (модифицированный) Table worker ""Industrial 1"" with 2 drawers and shelf"
 SOURCE_OFFICE_2,Rack Shelving unit Teon in oak veneer,Стеллаж Shelving unit Teon in oak veneer
-SOURCE_OFFICE_3,Rack Shelving unit Teon in oak veneer,Стеллаж Shelving unit Teon in oak veneer
+SOURCE_OFFICE_3,Rack Shelving unit Teon in oak veneer (download from official web-site),Стеллаж Shelving unit Teon in oak veneer (скачать 3д модель прямо с оф сайта!)
 SOURCE_OFFICE_4,Sliding wardrobe with a mirror Skandinaviya mebel,Шкаф (модифицированный) Sliding wardrobe with a mirror Skandinaviya mebel
 SOURCE_OFFICE_5,Photostands,Фотооборудование
 SOURCE_OFFICE_6,"Quebec, office chair","Quebec, office chair"
