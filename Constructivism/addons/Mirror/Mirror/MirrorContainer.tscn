@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://cp471l6edt4ab" path="res://addons/Mirror/Mirror/MirrorMaterial.tres" id="1"]
 
 [sub_resource type="QuadMesh" id="11"]
-size = Vector2(2, 2)
+size = Vector2(0.6, 3)
 
 [node name="MirrorContainer" type="Node3D"]
 
