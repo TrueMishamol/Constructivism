@@ -113,6 +113,9 @@ desktop.ini
 *.DS_Store
 *.lnk
 
+	# Private Folders
+_blender/
+_export/
 
 
 
