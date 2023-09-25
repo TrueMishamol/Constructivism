@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1bb1aely2e6"]
+
+[ext_resource type="PackedScene" uid="uid://d0awf5al28rcb" path="res://visual/3d/movable_restzone_kreslo_hib.gltf" id="1_pg4wk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_13xke"]
+points = PackedVector3Array(-0.0689156, 0.510379, 0.330967, -0.371858, 0.00643936, -0.32645, -0.371867, 0.0064303, 0.320423, 0.323362, 0.00698877, -0.325995, 0.233528, 0.800302, -0.286525, 0.323358, 0.00699297, 0.319957, 0.384787, 0.636391, 0.330967, -0.371359, 0.422187, -0.286525, -0.371359, 0.422187, 0.28049, 0.384787, 0.636391, -0.337002, 0.233528, 0.800302, 0.293109, -0.283087, 0.422187, -0.337002, 0.335604, 0.774895, 0.27122, 0.335495, 0.774773, -0.277166, -0.257952, 0.43474, 0.330967, 0.22096, 0.787669, -0.299144, 0.22096, 0.623758, -0.337002, -0.371359, 0.409475, 0.293109, 0.22096, 0.623758, 0.330967, -0.371359, 0.409475, -0.299144, 0.346358, 0.749032, 0.270056, 0.323211, 0.774619, -0.289252, -0.358716, 0.422187, -0.299144, 0.337792, 0.765062, 0.285296, 0.34616, 0.748829, -0.275934, -0.308198, 0.397, 0.317724, -0.131903, 0.485193, -0.337002, 0.286952, 0.787278, -0.265221)
+
+[node name="RestzoneKresloHib" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_13xke")
+
+[node name="movable_restzone_kreslo_hib" parent="." instance=ExtResource("1_pg4wk")]

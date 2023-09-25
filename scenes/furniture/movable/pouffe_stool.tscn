@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c18jf2pg5w3rn"]
+
+[ext_resource type="PackedScene" uid="uid://cmsfwn057njme" path="res://visual/3d/movable_pouffe_stool.gltf" id="1_206w4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ie3ll"]
+size = Vector3(0.39781, 0.432638, 0.324509)
+
+[node name="PouffeStool" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 15
+
+[node name="movable_pouffe_stool" parent="." instance=ExtResource("1_206w4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224697, 0)
+shape = SubResource("BoxShape3D_ie3ll")

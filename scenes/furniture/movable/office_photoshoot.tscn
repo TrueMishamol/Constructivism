@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkfmqeabs552l"]
+
+[ext_resource type="PackedScene" uid="uid://c4iwmqhplbx6k" path="res://visual/3d/movable_office_photoshoot.gltf" id="1_87f44"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6vtby"]
+points = PackedVector3Array(-0.46074, -1.0019, -0.293561, -0.00910459, -1.0019, 0.516414, 0.468921, -0.988725, -0.280318, -0.168538, 0.777325, 0.157897, 0.176628, 0.777325, 0.144574, -0.00875697, 0.65071, -0.0760426, 0.0171946, -0.988725, 0.516414, 0.442349, -1.01544, -0.293561, -0.46074, -0.975546, -0.253673, 0.468921, -0.988725, -0.253673, -0.0223907, -1.01544, 0.503171, 0.0547093, 0.649398, -0.0598625, 0.455635, -0.975546, -0.293561, -0.46074, -0.975546, -0.293561, -0.034606, 0.676082, -0.0629671, -0.168538, 0.764146, 0.131331, 0.110197, 0.80404, 0.144574, -0.115393, 0.80404, 0.144574, -0.0223907, -0.975546, 0.503171, 0.0171946, -1.01544, 0.503171, 0.0299408, 0.681279, -0.0641263, 0.455635, -1.01544, -0.253673, -0.46074, -1.0019, -0.253673)
+
+[node name="OfficePhotoshoot" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 15
+
+[node name="movable_office_photoshoot" parent="." instance=ExtResource("1_87f44")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_6vtby")

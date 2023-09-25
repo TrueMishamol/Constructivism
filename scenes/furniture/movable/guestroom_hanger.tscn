@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbn21x2c7qij8"]
+
+[ext_resource type="PackedScene" uid="uid://durgpoiogidyj" path="res://visual/3d/movable_guestroom_hanger.gltf" id="1_y2llh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mybbc"]
+size = Vector3(1.17846, 1.41988, 0.350059)
+
+[node name="GuestroomHanger" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 8
+collision_mask = 15
+
+[node name="movable_guestroom_hanger" parent="." instance=ExtResource("1_y2llh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.704726, 0)
+shape = SubResource("BoxShape3D_mybbc")

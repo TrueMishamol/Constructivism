@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvx7on606o452"]
+
+[ext_resource type="PackedScene" uid="uid://b2nbsst7g1702" path="res://visual/3d/movable_office_photostand.gltf" id="1_0hwhc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xm82b"]
+points = PackedVector3Array(0.0334398, 0.525723, 0.0639735, -0.394823, -0.616423, -0.185829, 0.408248, -0.616423, -0.185829, -0.0199358, -0.616423, 0.474418, -0.0734687, 0.454171, -0.239423, -0.0734687, 0.472171, 0.0461554, 0.408248, -0.580647, -0.239423, 0.0334398, -0.580647, 0.474418, -0.394823, -0.580647, -0.239423, 0.0512841, 0.525723, 0.0461554, -0.109157, 0.436283, -0.239423, -0.394823, -0.580647, -0.185829, 0.408248, -0.580647, -0.185829, -0.0199358, 0.525723, 0.0639735, -0.0199358, -0.598535, 0.474418, -0.0556244, 0.454171, -0.221535, -0.0556244, 0.525723, -0.0252567, 0.0334398, -0.616423, 0.474418, -0.109157, 0.436283, -0.203717, -0.0556244, 0.525723, 0.0461554, -0.00209155, -0.580647, 0.474418)
+
+[node name="OfficePhotostand" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 15
+
+[node name="movable_office_photostand" parent="." instance=ExtResource("1_0hwhc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_xm82b")

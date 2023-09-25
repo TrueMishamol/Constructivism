@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfaquvw34b2no"]
+
+[ext_resource type="PackedScene" uid="uid://c6axicxwnii4n" path="res://visual/3d/movable_restzone_pillar_table.gltf" id="1_vvauc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f2iby"]
+height = 0.501173
+radius = 0.177456
+
+[node name="RestzonePillarTable" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 15
+
+[node name="movable_restzone_pillar_table" parent="." instance=ExtResource("1_vvauc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253587, 0)
+shape = SubResource("CylinderShape3D_f2iby")

@@ -115,13 +115,7 @@ desktop.ini
 
 	# Private Folders
 _blender/
+_builds/
+_build/
 _export/
-
-
-
-
-
-
-
-
-
+_materials/
