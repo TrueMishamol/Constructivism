@@ -7,7 +7,6 @@ extends Node
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
-	
 
 
 func _input(event):

@@ -25,7 +25,7 @@ func display_message(message: String):
 	_queue.push_back(message)
 	
 	_check_for_queue()
-	
+
 
 func _check_for_queue():
 	if _displaying:
@@ -35,7 +35,7 @@ func _check_for_queue():
 		_fade_in()
 	else:
 		chat.hide()
-		
+
 
 func _fade_in():
 	_displaying = true
