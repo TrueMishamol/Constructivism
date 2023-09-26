@@ -22,7 +22,7 @@ const LAYER_IN_MOTION = 16
 var _held_object: RigidBody3D
 var _view_locked = false
 
-@onready var _crosshair = $Cross
+@onready var _crosshair = $Crosshair
 
 
 func _enter_tree():

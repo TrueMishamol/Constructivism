@@ -62,3 +62,12 @@ SOURCE_MATERIALS_3,Sofa,Диван
 SOURCE_MATERIALS_4,Bed,Кровать
 SOURCE_MATERIALS_5,Pillows,Подушки
 SOURCE_MATERIALS_6,Blanket,Плед
+,,
+HINT_CROSSHAIR_INTERACT,"You can interact with furniture, when crosshair appears on the screen","Вы можете взаимодействовать с мебелью, когда на экране появляется крестик"
+HINT_LIVINGROOM_PARTITION,Try to close Living room partition by clicking on round wall,"Закройте перегородку, нажав на круглую стену в гостиной"
+HINT_MOVABLE_FURNITURE,Some furniture can be moved,Некоторую мебель можно двигать
+HINT_ROTATE_FURNITURE,"You can rotate furniture while holding it, by pressing LMB or F button","Вы можете вращать мебель, задерживая ЛКМ или кнопку F"
+HINT_CURTAINS,Don't forget to try open curtains,Не забудьте открыть шторы
+HINT_LIVINGROOM_TABLE,There is an animated table in Living room,В гостиной есть стол трансформер
+HINT_GUESTROOM_TABLE,There is an animated table in Guestroom,В гостевой есть анимированный стол
+HINT_BATHROOM_GLASS_DOORS,Try to close glass doors in the Bathroom,Попробуйте закрыть стеклянные дверцы в ванной

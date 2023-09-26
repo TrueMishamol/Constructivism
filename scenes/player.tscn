@@ -9,7 +9,7 @@ height = 1.8
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "raycast", "hold_position", "hold_joint", "hold_static_body")]
 collision_layer = 2
-collision_mask = 13
+collision_mask = 45
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -21,7 +21,7 @@ hold_position = NodePath("Camera3D/HoldPosition")
 hold_joint = NodePath("Camera3D/HoldJoint")
 hold_static_body = NodePath("HoldStaticBody")
 
-[node name="Cross" type="Control" parent="."]
+[node name="Crosshair" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Cross"]
+[node name="Label" type="Label" parent="Crosshair"]
 modulate = Color(1, 1, 1, 0.627451)
 layout_mode = 1
 anchors_preset = 8
