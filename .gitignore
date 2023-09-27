@@ -1,5 +1,3 @@
-
-
 	#########
 	# Unity #
 	#########
@@ -119,3 +117,6 @@ _builds/
 _build/
 _export/
 _materials/
+
+	# Export
+*.exe

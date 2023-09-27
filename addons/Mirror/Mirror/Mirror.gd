@@ -42,7 +42,7 @@ func _ready():
 	if !Engine.is_editor_hint():
 		MainCamPath = Singleton.player_camera.get_path()
 		pass
-	
+
 	MainCam = get_node_or_null(MainCamPath)
 	cam = $MirrorContainer/SubViewport/Camera3D
 	mirror = $MirrorContainer/MeshInstance3D
