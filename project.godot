@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Constructivism"
 config/name_localized={
-"en": "Constructivism Interior Visualisation",
+"en": "Constructivism Interior Visualization",
 "ru": "Визуализация интерьера в стиле Конструктивизм"
 }
 run/main_scene="res://scenes/scene.tscn"
