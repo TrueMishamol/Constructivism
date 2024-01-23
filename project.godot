@@ -15,8 +15,8 @@ config/name_localized={
 "en": "Constructivism Interior Visualization",
 "ru": "Визуализация интерьера в стиле Конструктивизм"
 }
-run/main_scene="res://scenes/scene.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+run/main_scene="res://levels/constructivism.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.403922, 0.443137, 0.498039, 1)
 boot_splash/show_image=false
 config/icon="res://visual/ui/constructivism.png"
@@ -41,6 +41,16 @@ export/convert_text_resources_to_binary=false
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Mirror/plugin.cfg", "res://addons/SmoothScroll/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://levels/": "purple",
+"res://scenes/": "blue",
+"res://scripts/": "green",
+"res://visual/": "orange"
+}
 
 [filesystem]
 
