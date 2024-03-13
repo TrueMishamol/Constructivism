@@ -107,7 +107,7 @@ mono_crash.*.json
 *-autosave.kra
 
 	# System files
-desktop.ini
+# desktop.ini
 *.DS_Store
 *.lnk
 

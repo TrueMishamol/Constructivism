@@ -18,7 +18,7 @@ config/name_localized={
 run/main_scene="res://levels/constructivism.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.403922, 0.443137, 0.498039, 1)
-boot_splash/show_image=false
+boot_splash/image="res://visual/ui/boot_screen.png"
 config/icon="res://visual/ui/constructivism.png"
 
 [autoload]
